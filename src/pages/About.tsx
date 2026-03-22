@@ -1,5 +1,6 @@
 import { Eye, Target, Heart, Lightbulb, Users, Zap } from "lucide-react";
 import ScrollReveal from "@/components/shared/ScrollReveal";
+import heroAbout from "@/assets/hero-about.jpg";
 
 const values = [
   { icon: Heart, title: "Integrity", desc: "Transparent and honest partnerships with every client." },
