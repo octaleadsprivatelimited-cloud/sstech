@@ -66,12 +66,12 @@ const AdminServices = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
         <div>
-          <h2 className="font-heading text-xl font-bold text-navy">Services</h2>
-          <p className="text-sm text-muted-foreground mt-0.5">{services.length} service{services.length !== 1 ? "s" : ""}</p>
+          <h2 className="font-heading text-lg sm:text-xl font-bold text-navy">Services</h2>
+          <p className="text-xs text-muted-foreground mt-0.5">{services.length} service{services.length !== 1 ? "s" : ""}</p>
         </div>
-        {!editing && <Button onClick={startNew} size="sm" className="bg-electric hover:bg-electric/90 text-white"><Plus className="w-4 h-4 mr-2" /> Add Service</Button>}
+        {!editing && <Button onClick={startNew} size="sm" className="bg-electric hover:bg-electric/90 text-white self-start"><Plus className="w-4 h-4 mr-1" /> Add</Button>}
       </div>
 
       {editing ? (
