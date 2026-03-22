@@ -34,7 +34,7 @@ const Header = () => {
     >
       <div className="container mx-auto flex items-center justify-between h-16 md:h-20 px-4 md:px-8">
         <Link to="/" className="flex items-center gap-2 group">
-          <img src={logo} alt="Sthanu Setu Technologies" className="w-9 h-9 rounded-lg object-cover" />
+          <img src={logo} alt="Sthanu Setu Technologies" className="w-10 h-10 rounded-full object-cover ring-2 ring-white/20" />
           <span className={`font-heading font-semibold text-base md:text-lg hidden sm:block transition-colors ${scrolled ? 'text-navy' : 'text-primary-foreground'}`}>
             Sthanu Setu
           </span>
