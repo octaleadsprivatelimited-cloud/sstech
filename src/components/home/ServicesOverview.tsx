@@ -58,7 +58,7 @@ const ServicesOverview = () => {
           {services.map((service, i) => (
             <ScrollReveal key={service.title} delay={i * 0.08}>
               <div className="bg-surface-raised rounded-xl overflow-hidden h-full flex flex-col card-lift border border-border/50 group">
-                <div className="hidden sm:block aspect-[16/10] overflow-hidden">
+                <div className="aspect-[16/10] overflow-hidden">
                   <img
                     src={service.image}
                     alt={service.title}
