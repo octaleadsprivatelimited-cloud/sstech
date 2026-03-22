@@ -44,10 +44,10 @@ const AdminCareers = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
         <div>
-          <h2 className="font-heading text-xl font-bold text-navy">Careers</h2>
-          <p className="text-sm text-muted-foreground mt-0.5">{jobs.length} job{jobs.length !== 1 ? "s" : ""} · {applications.length} application{applications.length !== 1 ? "s" : ""}</p>
+          <h2 className="font-heading text-lg sm:text-xl font-bold text-navy">Careers</h2>
+          <p className="text-xs text-muted-foreground mt-0.5">{jobs.length} job{jobs.length !== 1 ? "s" : ""} · {applications.length} app{applications.length !== 1 ? "s" : ""}</p>
         </div>
       </div>
 
