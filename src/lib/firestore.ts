@@ -151,19 +151,31 @@ const deleteItem = async (collName: string, id: string) => {
   await deleteDoc(doc(db, collName, id));
 };
 
-// ─── Auto-Seed: Save defaults to Firestore if collection is empty ──
+// ─── Auto-Seed: Save defaults to Firestore, merging with existing ──
 const getOrSeedCollection = async <T extends Record<string, any>>(
   collName: string,
   orderField: string | undefined,
-  defaults: T[]
+  defaults: T[],
+  matchField: string = "title"
 ): Promise<(T & { id: string })[]> => {
   const existing = await getCollection<T & { id: string }>(collName, orderField);
-  if (existing.length > 0) return existing;
-  // Seed defaults
-  const seeded: (T & { id: string })[] = [];
-  for (const item of defaults) {
+  
+  // Find defaults not yet in Firestore (match by title/label field)
+  const existingValues = new Set(existing.map((e) => (e as any)[matchField]));
+  const missing = defaults.filter((d) => !existingValues.has((d as any)[matchField]));
+  
+  if (missing.length === 0) return existing;
+  
+  // Seed only the missing defaults
+  const seeded: (T & { id: string })[] = [...existing];
+  for (const item of missing) {
     const id = await addItem(collName, item);
     seeded.push({ ...item, id } as T & { id: string });
+  }
+  
+  // Re-sort if needed
+  if (orderField) {
+    seeded.sort((a, b) => ((a as any)[orderField] || 0) - ((b as any)[orderField] || 0));
   }
   return seeded;
 };
