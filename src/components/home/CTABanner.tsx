@@ -8,15 +8,17 @@ const CTABanner = () => {
     <section className="py-20 md:py-28 bg-background relative">
       <div className="container mx-auto px-5 md:px-8">
         <ScrollReveal>
-          <div className="bg-gradient-brand rounded-3xl p-10 sm:p-14 md:p-20 text-center relative overflow-hidden">
+          <div className="bg-[hsl(var(--navy))] rounded-3xl p-10 sm:p-14 md:p-20 text-center relative overflow-hidden">
             {/* Subtle pattern */}
             <div
-              className="absolute inset-0 opacity-[0.05]"
+              className="absolute inset-0 opacity-[0.04]"
               style={{
                 backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
                 backgroundSize: "28px 28px",
               }}
             />
+            {/* Accent glow */}
+            <div className="absolute top-[-30%] right-[-10%] w-64 h-64 rounded-full bg-[hsl(var(--electric))]/10 blur-[80px]" />
 
             <div className="relative z-10 max-w-xl mx-auto">
               <h2
@@ -26,7 +28,7 @@ const CTABanner = () => {
                 Ready to Transform Your Business?
               </h2>
               <p
-                className="text-sm sm:text-base text-white/75 mb-8"
+                className="text-sm sm:text-base text-white/60 mb-8"
                 style={{ textWrap: "pretty" }}
               >
                 Connect with Sthanu Setu Technologies to discover how our services
@@ -36,7 +38,7 @@ const CTABanner = () => {
                 <Link to="/contact">
                   <Button
                     size="lg"
-                    className="bg-white text-[hsl(var(--navy))] hover:bg-white/90 font-semibold px-8 h-12 text-sm sm:text-base active:scale-[0.97] transition-all shadow-xl shadow-black/15 rounded-full"
+                    className="bg-gradient-brand text-white hover:brightness-110 font-semibold px-8 h-12 text-sm sm:text-base active:scale-[0.97] transition-all shadow-xl shadow-[hsl(var(--electric))]/20 rounded-full"
                   >
                     Contact Us Now
                     <ArrowRight className="w-4 h-4 ml-2" />
@@ -46,7 +48,7 @@ const CTABanner = () => {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="border-white/30 text-white bg-white/[0.1] hover:bg-white/[0.2] font-semibold px-8 h-12 text-sm sm:text-base active:scale-[0.97] transition-all rounded-full"
+                    className="border-white/20 text-white bg-white/[0.06] hover:bg-white/[0.12] font-semibold px-8 h-12 text-sm sm:text-base active:scale-[0.97] transition-all rounded-full"
                   >
                     Explore Services
                   </Button>
