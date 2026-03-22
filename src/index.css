@@ -46,13 +46,13 @@
     --surface: 220 20% 97%;
     --surface-raised: 0 0% 100%;
 
-    /* Gradient brand colors */
+    /* Gradient brand colors - matches logo pink→orange */
     --gradient-start: 330 85% 55%;
-    --gradient-end: 260 80% 55%;
+    --gradient-end: 35 90% 55%;
 
-    --sidebar-background: 220 60% 10%;
+    --sidebar-background: 220 10% 20%;
     --sidebar-foreground: 220 15% 85%;
-    --sidebar-primary: 260 80% 55%;
+    --sidebar-primary: 330 85% 55%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 220 40% 18%;
     --sidebar-accent-foreground: 220 15% 85%;
