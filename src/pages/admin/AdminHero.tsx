@@ -41,13 +41,13 @@ const AdminHero = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
         <div>
-          <h2 className="font-heading text-xl font-bold text-navy">Hero Section</h2>
-          <p className="text-sm text-muted-foreground mt-0.5">Homepage hero content & background image</p>
+          <h2 className="font-heading text-lg sm:text-xl font-bold text-navy">Hero Section</h2>
+          <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">Homepage hero content & background</p>
         </div>
-        <Button onClick={handleSave} disabled={saving} size="sm" className="bg-electric hover:bg-electric/90 text-white">
-          <Save className="w-4 h-4 mr-2" /> {saving ? "Saving..." : "Save Changes"}
+        <Button onClick={handleSave} disabled={saving} size="sm" className="bg-electric hover:bg-electric/90 text-white self-start">
+          <Save className="w-4 h-4 mr-2" /> {saving ? "Saving..." : "Save"}
         </Button>
       </div>
 

@@ -64,15 +64,15 @@ const AdminDashboard = () => {
       {/* Section Cards */}
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {sections.map((s) => (
-          <Link key={s.path} to={s.path} className="bg-surface-raised rounded-xl p-5 border border-border/50 hover:shadow-md hover:border-electric/20 transition-all group">
-            <div className="flex items-start justify-between mb-4">
-              <div className={`w-10 h-10 rounded-lg ${s.color} flex items-center justify-center`}>
-                <s.icon className="w-5 h-5" />
+          <Link key={s.path} to={s.path} className="bg-surface-raised rounded-xl p-3 sm:p-5 border border-border/50 hover:shadow-md hover:border-electric/20 transition-all group">
+            <div className="flex items-start justify-between mb-2 sm:mb-4">
+              <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg ${s.color} flex items-center justify-center`}>
+                <s.icon className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
-              <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-electric group-hover:translate-x-0.5 transition-all" />
+              <ArrowRight className="w-3.5 h-3.5 text-muted-foreground group-hover:text-electric group-hover:translate-x-0.5 transition-all" />
             </div>
-            <h3 className="font-heading font-semibold text-navy text-sm">{s.label}</h3>
-            <p className="text-xs text-muted-foreground mt-1">{s.desc}</p>
+            <h3 className="font-heading font-semibold text-navy text-xs sm:text-sm">{s.label}</h3>
+            <p className="text-[10px] sm:text-xs text-muted-foreground mt-0.5 line-clamp-2">{s.desc}</p>
           </Link>
         ))}
       </div>
