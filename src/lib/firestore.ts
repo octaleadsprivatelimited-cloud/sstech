@@ -115,7 +115,6 @@ export const uploadImage = async (file: File, _path: string): Promise<string> =>
 export const deleteImage = async (_url: string) => {
   // No-op: base64 images are stored inline in Firestore documents
 };
-};
 
 // ─── Generic CRUD ────────────────────────────────
 const getCollection = async <T>(name: string, orderField?: string): Promise<T[]> => {
