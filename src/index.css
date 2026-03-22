@@ -137,6 +137,6 @@
 
   .glass-header {
     backdrop-filter: blur(16px) saturate(180%);
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: hsla(220, 60%, 4%, 0.85);
   }
 }
