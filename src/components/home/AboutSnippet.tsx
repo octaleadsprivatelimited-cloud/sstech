@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import ScrollReveal from "@/components/shared/ScrollReveal";
+import aboutImg from "@/assets/about-snippet.jpg";
 
 const points = [
   "Reliable and scalable digital solutions",
