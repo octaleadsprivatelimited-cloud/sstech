@@ -17,6 +17,7 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -26,18 +27,21 @@ const Header = () => {
 
   useEffect(() => setMobileOpen(false), [location.pathname]);
 
+  // On hero (home, not scrolled): white text. Otherwise: dark text on white bg.
+  const showDark = scrolled || !isHome;
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-[hsl(var(--navy))]/95 backdrop-blur-xl border-b border-white/[0.06] shadow-lg shadow-black/20"
+        showDark
+          ? "bg-white/95 backdrop-blur-xl border-b border-border shadow-sm"
           : "bg-transparent"
       }`}
     >
       <div className="container mx-auto flex items-center justify-between h-16 md:h-20 px-4 md:px-8">
         <Link to="/" className="flex items-center gap-2.5">
-          <img src={logo} alt="Sthanu Setu Technologies" className="w-9 h-9 rounded-full object-cover ring-2 ring-white/10" />
-          <span className="font-heading font-semibold text-base md:text-lg text-white hidden sm:block">
+          <img src={logo} alt="Sthanu Setu Technologies" className="w-9 h-9 rounded-full object-cover" />
+          <span className={`font-heading font-semibold text-base md:text-lg hidden sm:block ${showDark ? "text-foreground" : "text-white"}`}>
             Sthanu Setu
           </span>
         </Link>
@@ -50,7 +54,9 @@ const Header = () => {
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
                 location.pathname === link.path
                   ? "text-[hsl(var(--electric))]"
-                  : "text-white/60 hover:text-white"
+                  : showDark
+                    ? "text-foreground/60 hover:text-foreground"
+                    : "text-white/70 hover:text-white"
               }`}
             >
               {link.label}
@@ -59,7 +65,7 @@ const Header = () => {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a href="tel:+917675843214" className="hidden lg:flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors">
+          <a href="tel:+917675843214" className={`hidden lg:flex items-center gap-2 text-sm transition-colors ${showDark ? "text-foreground/60 hover:text-foreground" : "text-white/70 hover:text-white"}`}>
             <Phone className="w-4 h-4" />
             +91 76758 43214
           </a>
@@ -70,7 +76,7 @@ const Header = () => {
           </Link>
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 rounded-lg text-white/70 hover:text-white hover:bg-white/[0.06] transition-colors"
+            className={`md:hidden p-2 rounded-lg transition-colors ${showDark ? "text-foreground/70 hover:text-foreground hover:bg-secondary" : "text-white/70 hover:text-white hover:bg-white/10"}`}
             aria-label="Toggle menu"
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -84,7 +90,7 @@ const Header = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-[hsl(var(--navy))]/95 backdrop-blur-xl border-b border-white/[0.06] overflow-hidden"
+            className="md:hidden bg-white border-b border-border overflow-hidden"
           >
             <nav className="flex flex-col p-4 gap-1">
               {navLinks.map((link) => (
@@ -94,7 +100,7 @@ const Header = () => {
                   className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
                     location.pathname === link.path
                       ? "text-[hsl(var(--electric))] bg-[hsl(var(--electric))]/10"
-                      : "text-white/60 hover:text-white hover:bg-white/[0.04]"
+                      : "text-foreground/60 hover:text-foreground hover:bg-secondary"
                   }`}
                 >
                   {link.label}
