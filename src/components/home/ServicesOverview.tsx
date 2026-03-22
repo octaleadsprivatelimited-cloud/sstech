@@ -57,9 +57,6 @@ const ServicesOverview = () => {
                   />
                 </div>
                 <div className="p-3 sm:p-4 md:p-6 flex flex-col flex-1">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-[hsl(var(--electric))]/10 flex items-center justify-center mb-3 group-hover:bg-[hsl(var(--electric))]/20 transition-colors">
-                    <span className="text-[hsl(var(--electric))] font-bold text-xs sm:text-sm">{i + 1}</span>
-                  </div>
                   <h3 className="font-heading font-semibold text-sm sm:text-base md:text-lg text-foreground mb-1.5 sm:mb-2 line-clamp-2">{service.title}</h3>
                   <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-3 flex-1 line-clamp-3" style={{ textWrap: "pretty" }}>{service.description}</p>
                   {service.benefits && service.benefits.length > 0 && (
