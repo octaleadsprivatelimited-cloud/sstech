@@ -1,5 +1,6 @@
 import { Shield, TrendingUp, Lock } from "lucide-react";
 import ScrollReveal from "@/components/shared/ScrollReveal";
+import whyChooseBg from "@/assets/why-choose-us-bg.jpg";
 
 const reasons = [
   {
@@ -21,11 +22,9 @@ const reasons = [
 
 const WhyChooseUs = () => {
   return (
-    <section className="py-24 md:py-32 bg-navy relative overflow-hidden">
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-electric blur-[100px]" />
-        <div className="absolute bottom-0 left-0 w-72 h-72 rounded-full bg-gold blur-[80px]" />
-      </div>
+    <section className="py-24 md:py-32 relative overflow-hidden">
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${whyChooseBg})` }} />
+      <div className="absolute inset-0 bg-[hsl(220,60%,10%)]/70" />
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         <ScrollReveal>

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import ScrollReveal from "@/components/shared/ScrollReveal";
+import aboutImg from "@/assets/about-snippet.jpg";
 
 const points = [
   "Reliable and scalable digital solutions",
@@ -47,16 +48,13 @@ const AboutSnippet = () => {
 
           <ScrollReveal direction="right">
             <div className="relative">
-              <div className="aspect-square max-w-md mx-auto rounded-2xl hero-gradient p-8 flex items-center justify-center">
-                {/* Abstract geometric composition */}
-                <div className="relative w-full h-full">
-                  <div className="absolute top-[10%] left-[10%] w-[40%] h-[40%] rounded-2xl bg-electric/20 border border-electric/30 animate-float" />
-                  <div className="absolute bottom-[15%] right-[10%] w-[35%] h-[35%] rounded-xl bg-gold/20 border border-gold/30 animate-float-delayed" />
-                  <div className="absolute top-[40%] left-[35%] w-[30%] h-[30%] rounded-lg bg-primary-foreground/10 border border-primary-foreground/20" />
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-xl bg-electric flex items-center justify-center">
-                    <span className="font-heading font-bold text-2xl text-accent-foreground">SST</span>
-                  </div>
-                </div>
+              <div className="aspect-square max-w-md mx-auto rounded-2xl overflow-hidden shadow-xl border border-border/50">
+                <img
+                  src={aboutImg}
+                  alt="Sthanu Setu Technologies team collaborating in modern office"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
             </div>
           </ScrollReveal>
