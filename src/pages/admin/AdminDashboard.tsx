@@ -36,12 +36,12 @@ const AdminDashboard = () => {
 
   return (
     <div className="space-y-8">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
         <div>
-          <h2 className="font-heading text-2xl font-bold text-navy">Dashboard</h2>
-          <p className="text-sm text-muted-foreground mt-1">Manage your website content</p>
+          <h2 className="font-heading text-xl sm:text-2xl font-bold text-navy">Dashboard</h2>
+          <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">Manage your website content</p>
         </div>
-        <Link to="/" target="_blank" className="inline-flex items-center gap-2 text-sm text-electric hover:underline font-medium">
+        <Link to="/" target="_blank" className="inline-flex items-center gap-2 text-xs text-electric hover:underline font-medium">
           View Live Site <ExternalLink className="w-3.5 h-3.5" />
         </Link>
       </div>
