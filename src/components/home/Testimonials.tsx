@@ -23,16 +23,16 @@ const Testimonials = () => {
 
   return (
     <section className="py-20 md:py-28 bg-secondary relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[hsl(var(--electric))]/[0.03] rounded-full blur-[100px]" />
+
       <div className="container mx-auto px-5 md:px-8 relative z-10">
         <ScrollReveal>
           <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
-            <div className="inline-flex items-center gap-2 bg-[hsl(var(--electric))]/10 rounded-full px-4 py-1.5 mb-4">
-              <span className="text-xs font-semibold uppercase tracking-[0.15em] text-[hsl(var(--electric))]">
-                Testimonials
-              </span>
-            </div>
-            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-gradient leading-tight">
-              What Our Clients Say
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[hsl(var(--electric))] mb-4">
+              Testimonials
+            </p>
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
+              What Our <span className="text-gradient">Clients</span> Say
             </h2>
           </div>
         </ScrollReveal>
@@ -46,7 +46,7 @@ const Testimonials = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -12 }}
                 transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                className="bg-card rounded-2xl p-7 sm:p-10 md:p-12 text-center border border-border shadow-lg shadow-black/5 relative"
+                className="glass-card rounded-2xl p-7 sm:p-10 md:p-12 text-center relative"
               >
                 <Quote className="w-8 h-8 text-[hsl(var(--electric))]/20 mx-auto mb-4" />
                 <div className="flex justify-center gap-0.5 mb-5">
@@ -55,7 +55,7 @@ const Testimonials = () => {
                   ))}
                 </div>
                 <blockquote
-                  className="text-base sm:text-lg md:text-xl text-foreground/80 leading-relaxed mb-7 font-medium"
+                  className="text-base sm:text-lg md:text-xl text-white/75 leading-relaxed mb-7 font-medium"
                   style={{ textWrap: "pretty" }}
                 >
                   "{t.quote}"
@@ -65,8 +65,8 @@ const Testimonials = () => {
                     {t.name.split(" ").map((n) => n[0]).join("")}
                   </div>
                   <div className="text-left">
-                    <p className="font-semibold text-sm text-foreground">{t.name}</p>
-                    <p className="text-xs text-muted-foreground">{t.company}</p>
+                    <p className="font-semibold text-sm text-white">{t.name}</p>
+                    <p className="text-xs text-white/40">{t.company}</p>
                   </div>
                 </div>
               </motion.div>
@@ -75,10 +75,10 @@ const Testimonials = () => {
             <div className="flex justify-center items-center gap-4 mt-8">
               <button
                 onClick={prev}
-                className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:bg-muted transition-colors active:scale-95"
+                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/[0.06] transition-colors active:scale-95"
                 aria-label="Previous testimonial"
               >
-                <ChevronLeft className="w-4 h-4 text-muted-foreground" />
+                <ChevronLeft className="w-4 h-4 text-white/50" />
               </button>
               <div className="flex items-center gap-2">
                 {testimonials.map((_, i) => (
@@ -87,8 +87,8 @@ const Testimonials = () => {
                     onClick={() => setCurrent(i)}
                     className={`h-1.5 rounded-full transition-all duration-300 ${
                       i === current
-                        ? "bg-[hsl(var(--electric))] w-6"
-                        : "bg-border w-1.5 hover:bg-muted-foreground/30"
+                        ? "bg-gradient-brand w-6"
+                        : "bg-white/15 w-1.5 hover:bg-white/30"
                     }`}
                     aria-label={`Go to testimonial ${i + 1}`}
                   />
@@ -96,10 +96,10 @@ const Testimonials = () => {
               </div>
               <button
                 onClick={next}
-                className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:bg-muted transition-colors active:scale-95"
+                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/[0.06] transition-colors active:scale-95"
                 aria-label="Next testimonial"
               >
-                <ChevronRight className="w-4 h-4 text-muted-foreground" />
+                <ChevronRight className="w-4 h-4 text-white/50" />
               </button>
             </div>
           </div>

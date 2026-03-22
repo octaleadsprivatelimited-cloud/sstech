@@ -30,8 +30,6 @@ const AnimatedCounter = ({ end, suffix = "", label, duration = 2, variant = "def
     return () => clearInterval(timer);
   }, [isInView, end, duration]);
 
-  const isHero = variant === "hero";
-
   return (
     <motion.div
       ref={ref}
@@ -41,11 +39,11 @@ const AnimatedCounter = ({ end, suffix = "", label, duration = 2, variant = "def
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       className="text-center"
     >
-      <div className={`font-heading font-bold tabular-nums tracking-tight ${isHero ? "text-xl md:text-2xl text-white" : "text-2xl md:text-4xl text-foreground"}`}>
+      <div className="font-heading text-xl sm:text-2xl md:text-3xl font-bold text-white tabular-nums tracking-tight">
         {count}
         {suffix}
       </div>
-      <div className={`mt-1 font-medium ${isHero ? "text-[10px] md:text-xs text-white/50" : "text-xs md:text-sm text-muted-foreground"}`}>
+      <div className="text-[10px] sm:text-xs text-white/45 mt-1 font-medium tracking-wide">
         {label}
       </div>
     </motion.div>

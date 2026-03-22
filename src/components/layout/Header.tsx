@@ -30,14 +30,14 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/95 backdrop-blur-xl border-b border-border shadow-sm"
+          ? "glass-header border-b border-white/[0.06] shadow-lg shadow-black/20"
           : "bg-transparent"
       }`}
     >
       <div className="container mx-auto flex items-center justify-between h-16 md:h-20 px-4 md:px-8">
         <Link to="/" className="flex items-center gap-2.5 group">
-          <img src={logo} alt="Sthanu Setu Technologies" className="w-9 h-9 rounded-full object-cover ring-2 ring-black/5" />
-          <span className={`font-heading font-semibold text-base md:text-lg hidden sm:block transition-colors ${scrolled ? "text-foreground" : "text-white"}`}>
+          <img src={logo} alt="Sthanu Setu Technologies" className="w-9 h-9 rounded-full object-cover ring-2 ring-white/10" />
+          <span className="font-heading font-semibold text-base md:text-lg text-white hidden sm:block">
             Sthanu Setu
           </span>
         </Link>
@@ -49,8 +49,8 @@ const Header = () => {
               to={link.path}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
                 location.pathname === link.path
-                  ? scrolled ? "text-[hsl(var(--electric))]" : "text-white"
-                  : scrolled ? "text-foreground/60 hover:text-foreground" : "text-white/70 hover:text-white"
+                  ? "text-[hsl(var(--electric))]"
+                  : "text-white/60 hover:text-white"
               }`}
             >
               {link.label}
@@ -60,13 +60,13 @@ const Header = () => {
 
         <div className="flex items-center gap-3">
           <Link to="/contact" className="hidden md:block">
-            <Button className="bg-gradient-brand text-white font-medium px-5 h-9 text-sm rounded-lg active:scale-[0.97] transition-all shadow-md hover:shadow-lg hover:opacity-90">
+            <Button className="bg-gradient-brand text-white font-medium px-5 h-9 text-sm rounded-full active:scale-[0.97] transition-all shadow-lg shadow-[hsl(330,85%,55%)]/20 hover:shadow-[hsl(330,85%,55%)]/30 hover:brightness-110">
               Contact Us
             </Button>
           </Link>
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className={`md:hidden p-2 rounded-lg transition-colors ${scrolled ? "text-foreground/70 hover:text-foreground hover:bg-muted" : "text-white/70 hover:text-white hover:bg-white/10"}`}
+            className="md:hidden p-2 rounded-lg text-white/70 hover:text-white hover:bg-white/[0.06] transition-colors"
             aria-label="Toggle menu"
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -80,7 +80,7 @@ const Header = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white/98 backdrop-blur-xl border-b border-border overflow-hidden"
+            className="md:hidden glass-header border-b border-white/[0.06] overflow-hidden"
           >
             <nav className="flex flex-col p-4 gap-1">
               {navLinks.map((link) => (
@@ -90,14 +90,14 @@ const Header = () => {
                   className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
                     location.pathname === link.path
                       ? "text-[hsl(var(--electric))] bg-[hsl(var(--electric))]/10"
-                      : "text-foreground/60 hover:text-foreground hover:bg-muted"
+                      : "text-white/60 hover:text-white hover:bg-white/[0.04]"
                   }`}
                 >
                   {link.label}
                 </Link>
               ))}
               <Link to="/contact" className="mt-2">
-                <Button className="w-full bg-gradient-brand text-white font-medium rounded-lg">
+                <Button className="w-full bg-gradient-brand text-white font-medium rounded-full">
                   Contact Us
                 </Button>
               </Link>
