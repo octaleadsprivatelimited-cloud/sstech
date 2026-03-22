@@ -19,7 +19,9 @@ const About = () => {
   return (
     <>
       {/* Hero */}
-      <section className="hero-gradient pt-32 pb-20 md:pt-40 md:pb-28">
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${heroAbout})` }} />
+        <div className="absolute inset-0 bg-[hsl(220,60%,10%)]/60" />
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal>
             <p className="text-sm font-semibold uppercase tracking-wider text-electric mb-3">About Us</p>
