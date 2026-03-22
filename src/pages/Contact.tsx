@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import { useState } from "react";
 import { toast } from "sonner";
+import heroContact from "@/assets/hero-contact.jpg";
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
