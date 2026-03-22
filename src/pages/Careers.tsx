@@ -106,7 +106,7 @@ const Careers = () => {
                       </div>
                     </div>
                   </div>
-                  <Button variant="outline" size="sm" className="shrink-0 active:scale-[0.97]">Apply Now</Button>
+                  <Button variant="outline" size="sm" className="shrink-0 active:scale-[0.97]" onClick={() => handleApply(job.title)}>Apply Now</Button>
                 </div>
               </ScrollReveal>
             ))}
