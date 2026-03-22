@@ -1,5 +1,6 @@
 import { Eye, Target, Heart, Lightbulb, Users, Zap } from "lucide-react";
 import ScrollReveal from "@/components/shared/ScrollReveal";
+import heroAbout from "@/assets/hero-about.jpg";
 
 const values = [
   { icon: Heart, title: "Integrity", desc: "Transparent and honest partnerships with every client." },
@@ -19,8 +20,10 @@ const About = () => {
   return (
     <>
       {/* Hero */}
-      <section className="hero-gradient pt-32 pb-20 md:pt-40 md:pb-28">
-        <div className="container mx-auto px-4 md:px-8">
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${heroAbout})` }} />
+        <div className="absolute inset-0 bg-[hsl(220,60%,10%)]/60" />
+        <div className="container mx-auto px-4 md:px-8 relative z-10">
           <ScrollReveal>
             <p className="text-sm font-semibold uppercase tracking-wider text-electric mb-3">About Us</p>
             <h1 className="font-heading text-4xl md:text-5xl font-bold text-primary-foreground leading-tight max-w-2xl" style={{ textWrap: "balance" }}>
