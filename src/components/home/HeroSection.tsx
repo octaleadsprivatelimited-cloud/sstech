@@ -60,7 +60,7 @@ const HeroSection = () => {
             <Link to="/services">
               <Button
                 size="lg"
-                className="bg-electric hover:bg-electric/90 text-accent-foreground font-semibold px-7 h-12 text-base active:scale-[0.97] transition-all shadow-lg shadow-electric/20"
+                className="bg-electric hover:bg-electric/90 text-white font-semibold px-7 h-12 text-base active:scale-[0.97] transition-all shadow-lg shadow-electric/20"
               >
                 Our Services
                 <ArrowRight className="w-4 h-4 ml-2" />
@@ -70,7 +70,7 @@ const HeroSection = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 font-semibold px-7 h-12 text-base active:scale-[0.97] transition-all"
+                className="border-white/30 text-white bg-white/10 hover:bg-white/20 font-semibold px-7 h-12 text-base active:scale-[0.97] transition-all"
               >
                 Contact Us
                 <ChevronRight className="w-4 h-4 ml-1" />
