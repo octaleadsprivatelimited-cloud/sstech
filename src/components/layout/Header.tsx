@@ -67,7 +67,7 @@ const Header = () => {
           </Link>
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-secondary transition-colors"
+            className={`md:hidden p-2 rounded-lg transition-colors ${scrolled ? 'hover:bg-secondary text-foreground' : 'hover:bg-primary-foreground/10 text-primary-foreground'}`}
             aria-label="Toggle menu"
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
