@@ -73,7 +73,7 @@ const About = () => {
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-navy">What drives us</h2>
             </div>
           </ScrollReveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {values.map((v, i) => (
               <ScrollReveal key={v.title} delay={i * 0.08}>
                 <div className="bg-surface rounded-xl p-7 text-center card-lift border border-border/50">
@@ -98,7 +98,7 @@ const About = () => {
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-navy">Meet the people behind SST</h2>
             </div>
           </ScrollReveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {team.map((member, i) => (
               <ScrollReveal key={member.name} delay={i * 0.08}>
                 <div className="bg-surface-raised rounded-xl p-7 text-center card-lift border border-border/50">
