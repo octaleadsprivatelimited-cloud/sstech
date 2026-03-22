@@ -66,9 +66,8 @@ const ServicesOverview = () => {
                     loading="lazy"
                   />
                 </div>
-                <div className="p-3 sm:p-7 flex flex-col flex-1">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-electric/10 flex items-center justify-center mb-2 sm:mb-4 group-hover:bg-electric/20 transition-colors">
-                    <service.icon className="w-4 h-4 sm:w-5 sm:h-5 text-electric" />
+                <div className="p-2.5 sm:p-7 flex flex-col flex-1">
+                  <h3 className="font-heading font-semibold text-xs sm:text-lg text-navy mb-1 sm:mb-3">{service.title}</h3>
                   </div>
                   <h3 className="font-heading font-semibold text-sm sm:text-lg text-navy mb-1 sm:mb-3">{service.title}</h3>
                   <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed flex-1 hidden sm:block">
