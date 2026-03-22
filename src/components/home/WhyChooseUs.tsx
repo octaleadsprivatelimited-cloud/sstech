@@ -39,7 +39,7 @@ const WhyChooseUs = () => {
           </div>
         </ScrollReveal>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8">
           {reasons.map((reason, i) => (
             <ScrollReveal key={reason.title} delay={i * 0.1}>
               <div className="text-center p-8 rounded-xl border border-primary-foreground/10 hover:border-electric/30 transition-colors group">

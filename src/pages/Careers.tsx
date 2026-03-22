@@ -64,7 +64,7 @@ const Careers = () => {
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-navy">Three simple steps</h2>
             </div>
           </ScrollReveal>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8">
             {steps.map((step, i) => (
               <ScrollReveal key={step.title} delay={i * 0.1}>
                 <div className="text-center p-8 bg-surface-raised rounded-xl border border-border/50 card-lift">
