@@ -29,13 +29,15 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass-header shadow-sm border-b" : "bg-transparent"
+        scrolled
+          ? "bg-[hsl(220,60%,4%)]/90 backdrop-blur-xl border-b border-white/[0.06] shadow-lg shadow-black/10"
+          : "bg-transparent"
       }`}
     >
       <div className="container mx-auto flex items-center justify-between h-16 md:h-20 px-4 md:px-8">
-        <Link to="/" className="flex items-center gap-2 group">
-          <img src={logo} alt="Sthanu Setu Technologies" className="w-10 h-10 rounded-full object-cover ring-2 ring-white/20" />
-          <span className={`font-heading font-semibold text-base md:text-lg hidden sm:block transition-colors ${scrolled ? 'text-navy' : 'text-primary-foreground'}`}>
+        <Link to="/" className="flex items-center gap-2.5 group">
+          <img src={logo} alt="Sthanu Setu Technologies" className="w-9 h-9 rounded-full object-cover ring-2 ring-white/10" />
+          <span className="font-heading font-semibold text-base md:text-lg text-white hidden sm:block">
             Sthanu Setu
           </span>
         </Link>
@@ -47,10 +49,8 @@ const Header = () => {
               to={link.path}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
                 location.pathname === link.path
-                  ? "text-electric bg-accent/10"
-                  : scrolled
-                    ? "text-muted-foreground hover:text-foreground hover:bg-secondary"
-                    : "text-primary-foreground/70 hover:text-primary-foreground hover:bg-primary-foreground/10"
+                  ? "text-electric"
+                  : "text-white/60 hover:text-white"
               }`}
             >
               {link.label}
@@ -60,13 +60,13 @@ const Header = () => {
 
         <div className="flex items-center gap-3">
           <Link to="/contact" className="hidden md:block">
-            <Button className="bg-electric hover:bg-electric/90 text-accent-foreground font-medium px-5 active:scale-[0.97] transition-all">
-              Get in Touch
+            <Button className="bg-white/[0.08] border border-white/[0.1] hover:bg-white/[0.12] text-white font-medium px-5 h-9 text-sm rounded-lg active:scale-[0.97] transition-all">
+              Contact Us
             </Button>
           </Link>
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className={`md:hidden p-2 rounded-lg transition-colors ${scrolled ? 'hover:bg-secondary text-foreground' : 'hover:bg-primary-foreground/10 text-primary-foreground'}`}
+            className="md:hidden p-2 rounded-lg text-white/70 hover:text-white hover:bg-white/[0.06] transition-colors"
             aria-label="Toggle menu"
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -80,7 +80,7 @@ const Header = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-surface-raised border-b overflow-hidden"
+            className="md:hidden bg-[hsl(220,60%,4%)]/95 backdrop-blur-xl border-b border-white/[0.06] overflow-hidden"
           >
             <nav className="flex flex-col p-4 gap-1">
               {navLinks.map((link) => (
@@ -89,16 +89,16 @@ const Header = () => {
                   to={link.path}
                   className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
                     location.pathname === link.path
-                      ? "text-electric bg-accent/10"
-                      : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                      ? "text-electric bg-electric/10"
+                      : "text-white/60 hover:text-white hover:bg-white/[0.04]"
                   }`}
                 >
                   {link.label}
                 </Link>
               ))}
               <Link to="/contact" className="mt-2">
-                <Button className="w-full bg-electric hover:bg-electric/90 text-accent-foreground">
-                  Get in Touch
+                <Button className="w-full bg-electric hover:bg-electric/90 text-white font-medium rounded-lg">
+                  Contact Us
                 </Button>
               </Link>
             </nav>

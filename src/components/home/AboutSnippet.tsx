@@ -13,22 +13,22 @@ const points = [
 
 const AboutSnippet = () => {
   return (
-    <section className="py-20 md:py-32 bg-surface-raised">
-      <div className="container mx-auto px-5 md:px-8">
+    <section className="py-20 md:py-28 bg-[hsl(220,60%,4%)] relative overflow-hidden">
+      <div className="container mx-auto px-5 md:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <ScrollReveal direction="left">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-electric mb-3">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-electric mb-4">
                 About Us
               </p>
               <h2
-                className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-navy leading-tight mb-5"
+                className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight mb-5"
                 style={{ textWrap: "balance" }}
               >
                 Building the future with stable innovation
               </h2>
               <p
-                className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-7"
+                className="text-sm sm:text-base text-white/45 leading-relaxed mb-7"
                 style={{ textWrap: "pretty" }}
               >
                 Sthanu Setu Technologies is an IT consulting and software
@@ -40,15 +40,15 @@ const AboutSnippet = () => {
                 {points.map((point) => (
                   <li
                     key={point}
-                    className="flex items-start gap-2.5 text-sm text-foreground"
+                    className="flex items-start gap-2.5 text-sm text-white/70"
                   >
-                    <CheckCircle2 className="w-4.5 h-4.5 text-electric shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-electric shrink-0 mt-0.5" />
                     <span>{point}</span>
                   </li>
                 ))}
               </ul>
               <Link to="/about">
-                <Button className="bg-navy hover:bg-navy-light text-primary-foreground font-medium px-6 h-11 active:scale-[0.97] transition-all">
+                <Button className="bg-electric hover:bg-electric/90 text-white font-medium px-6 h-11 active:scale-[0.97] transition-all rounded-lg">
                   More About Us
                   <ArrowRight className="w-4 h-4 ml-1.5" />
                 </Button>
@@ -58,7 +58,7 @@ const AboutSnippet = () => {
 
           <ScrollReveal direction="right">
             <div className="relative">
-              <div className="aspect-[4/3] lg:aspect-square max-w-md mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-navy/10">
+              <div className="aspect-[4/3] lg:aspect-square max-w-md mx-auto rounded-2xl overflow-hidden border border-white/[0.06]">
                 <img
                   src={aboutImg}
                   alt="Sthanu Setu Technologies team collaborating in modern office"
@@ -66,8 +66,6 @@ const AboutSnippet = () => {
                   loading="lazy"
                 />
               </div>
-              {/* Decorative accent */}
-              <div className="hidden lg:block absolute -bottom-4 -left-4 w-24 h-24 rounded-xl bg-electric/10 -z-10" />
             </div>
           </ScrollReveal>
         </div>
