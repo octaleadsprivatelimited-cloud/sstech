@@ -1,6 +1,10 @@
 import { Briefcase, Code2, Users, Wrench, CheckCircle2 } from "lucide-react";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import heroServices from "@/assets/hero-services.jpg";
+import serviceConsulting from "@/assets/service-consulting.jpg";
+import serviceDevelopment from "@/assets/service-development.jpg";
+import servicePlacements from "@/assets/service-placements.jpg";
+import serviceSupport from "@/assets/service-support.jpg";
 
 const services = [
   {
@@ -8,24 +12,28 @@ const services = [
     title: "IT Consulting & Consultancy Services",
     description: "Strategic guidance for better technology decisions. We provide professional support and expert solutions for business and IT needs, helping you navigate complex technology landscapes with confidence.",
     benefits: ["Technology roadmap planning", "Digital transformation strategy", "Vendor evaluation & selection", "IT infrastructure assessment"],
+    image: serviceConsulting,
   },
   {
     icon: Code2,
     title: "Software Development",
     description: "Custom-built applications tailored to your unique business requirements. From web platforms to enterprise systems, we deliver robust software solutions that drive business growth.",
     benefits: ["Full-stack web development", "Enterprise application development", "API design & integration", "Cloud-native solutions"],
+    image: serviceDevelopment,
   },
   {
     icon: Users,
     title: "Job Placements",
     description: "Connecting top talent with direct clients. We help professionals find the right career path and provide companies with skilled resources that fit their culture and technical needs.",
     benefits: ["Direct client placements", "Contract & full-time staffing", "Technical screening & vetting", "Career guidance & support"],
+    image: servicePlacements,
   },
   {
     icon: Wrench,
     title: "Support & Maintenance",
     description: "Reliable ongoing technical support to keep your systems running smoothly, securely, and efficiently. We monitor, maintain, and optimize your technology infrastructure.",
     benefits: ["24/7 monitoring & support", "Performance optimization", "Security patching & updates", "Incident management"],
+    image: serviceSupport,
   },
 ];
 
@@ -71,8 +79,13 @@ const Services = () => {
                   </ul>
                 </div>
                 <div className={i % 2 === 1 ? "lg:order-1" : ""}>
-                  <div className="aspect-[4/3] rounded-2xl bg-navy/5 border border-border/50 flex items-center justify-center">
-                    <service.icon className="w-16 h-16 text-electric/30" />
+                  <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-border/50 shadow-lg">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
                   </div>
                 </div>
               </div>
