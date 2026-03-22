@@ -6,9 +6,10 @@ interface AnimatedCounterProps {
   suffix?: string;
   label: string;
   duration?: number;
+  variant?: "hero" | "default";
 }
 
-const AnimatedCounter = ({ end, suffix = "", label, duration = 2 }: AnimatedCounterProps) => {
+const AnimatedCounter = ({ end, suffix = "", label, duration = 2, variant = "default" }: AnimatedCounterProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
   const [count, setCount] = useState(0);
@@ -29,6 +30,8 @@ const AnimatedCounter = ({ end, suffix = "", label, duration = 2 }: AnimatedCoun
     return () => clearInterval(timer);
   }, [isInView, end, duration]);
 
+  const isHero = variant === "hero";
+
   return (
     <motion.div
       ref={ref}
@@ -38,11 +41,11 @@ const AnimatedCounter = ({ end, suffix = "", label, duration = 2 }: AnimatedCoun
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       className="text-center"
     >
-      <div className="font-heading text-xl sm:text-3xl md:text-5xl font-bold text-white tabular-nums tracking-tight">
+      <div className={`font-heading font-bold tabular-nums tracking-tight ${isHero ? "text-xl md:text-2xl text-white" : "text-2xl md:text-4xl text-foreground"}`}>
         {count}
         {suffix}
       </div>
-      <div className="text-[10px] sm:text-xs md:text-sm text-white/50 mt-1 font-medium tracking-wide">
+      <div className={`mt-1 font-medium ${isHero ? "text-[10px] md:text-xs text-white/50" : "text-xs md:text-sm text-muted-foreground"}`}>
         {label}
       </div>
     </motion.div>

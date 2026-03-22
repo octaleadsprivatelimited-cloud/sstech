@@ -31,7 +31,7 @@ const Footer = () => {
     setOpenSection((prev) => (prev === title ? null : title));
 
   return (
-    <footer className="relative bg-[hsl(220,60%,3%)] text-white border-t border-white/[0.06]">
+    <footer className="relative bg-[hsl(220,30%,8%)] text-white border-t border-white/[0.06]">
       <div className="container mx-auto px-4 md:px-8 py-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {/* Brand */}
@@ -48,7 +48,7 @@ const Footer = () => {
                 <a
                   key={i}
                   href="#"
-                  className="w-9 h-9 rounded-lg bg-white/[0.04] border border-white/[0.06] flex items-center justify-center hover:bg-electric/20 hover:border-electric/30 transition-all active:scale-95"
+                  className="w-9 h-9 rounded-lg bg-white/[0.04] border border-white/[0.06] flex items-center justify-center hover:bg-[hsl(var(--electric))]/20 hover:border-[hsl(var(--electric))]/30 transition-all active:scale-95"
                 >
                   <Icon className="w-4 h-4 text-white/50" />
                 </a>

@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    --background: 220 20% 97%;
+    --background: 0 0% 100%;
     --foreground: 220 40% 10%;
 
     --card: 0 0% 100%;
@@ -18,13 +18,13 @@
     --primary: 220 60% 10%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 15% 94%;
+    --secondary: 220 15% 96%;
     --secondary-foreground: 220 40% 10%;
 
-    --muted: 220 15% 94%;
+    --muted: 220 15% 96%;
     --muted-foreground: 220 10% 46%;
 
-    --accent: 217 100% 50%;
+    --accent: 260 80% 55%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -32,28 +32,32 @@
 
     --border: 220 15% 90%;
     --input: 220 15% 90%;
-    --ring: 217 100% 50%;
+    --ring: 260 80% 55%;
 
     --radius: 0.75rem;
 
     /* Brand tokens */
     --navy: 220 60% 10%;
     --navy-light: 220 40% 18%;
-    --electric: 217 100% 50%;
-    --electric-light: 217 100% 60%;
+    --electric: 260 80% 55%;
+    --electric-light: 280 85% 65%;
     --gold: 37 90% 55%;
     --gold-light: 37 90% 65%;
     --surface: 220 20% 97%;
     --surface-raised: 0 0% 100%;
 
+    /* Gradient brand colors */
+    --gradient-start: 330 85% 55%;
+    --gradient-end: 260 80% 55%;
+
     --sidebar-background: 220 60% 10%;
     --sidebar-foreground: 220 15% 85%;
-    --sidebar-primary: 217 100% 50%;
+    --sidebar-primary: 260 80% 55%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 220 40% 18%;
     --sidebar-accent-foreground: 220 15% 85%;
     --sidebar-border: 220 40% 18%;
-    --sidebar-ring: 217 100% 50%;
+    --sidebar-ring: 260 80% 55%;
   }
 }
 
@@ -83,7 +87,11 @@
 
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(var(--electric)) 0%, hsl(var(--electric-light)) 100%);
+    background-image: linear-gradient(135deg, hsl(var(--gradient-start)) 0%, hsl(var(--gradient-end)) 100%);
+  }
+
+  .bg-gradient-brand {
+    background-image: linear-gradient(135deg, hsl(var(--gradient-start)) 0%, hsl(var(--gradient-end)) 100%);
   }
 
   .bg-navy {
@@ -123,7 +131,7 @@
   }
 
   .hero-gradient {
-    background: linear-gradient(135deg, hsl(220 60% 10%) 0%, hsl(220 50% 16%) 50%, hsl(217 80% 20%) 100%);
+    background: linear-gradient(135deg, hsl(220 60% 10%) 0%, hsl(220 50% 16%) 50%, hsl(260 60% 18%) 100%);
   }
 
   .card-lift {
@@ -137,6 +145,11 @@
 
   .glass-header {
     backdrop-filter: blur(16px) saturate(180%);
-    background-color: hsla(220, 60%, 4%, 0.85);
+    background-color: hsla(0, 0%, 100%, 0.9);
+  }
+
+  .glass-dark {
+    backdrop-filter: blur(16px) saturate(180%);
+    background-color: hsla(220, 20%, 10%, 0.6);
   }
 }
