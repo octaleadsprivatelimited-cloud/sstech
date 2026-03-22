@@ -61,10 +61,10 @@ const AdminContact = () => {
           </div>
           <div className="p-5 space-y-4">
             <h3 className="font-heading font-semibold text-sm text-navy">Social Links</h3>
-            <div className="grid sm:grid-cols-3 gap-4">
-              <div className="space-y-1.5"><Label>LinkedIn URL</Label><Input value={data.linkedin} onChange={(e) => setData({ ...data, linkedin: e.target.value })} /></div>
-              <div className="space-y-1.5"><Label>Twitter URL</Label><Input value={data.twitter} onChange={(e) => setData({ ...data, twitter: e.target.value })} /></div>
-              <div className="space-y-1.5"><Label>GitHub URL</Label><Input value={data.github} onChange={(e) => setData({ ...data, github: e.target.value })} /></div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div className="space-y-1.5"><Label>LinkedIn</Label><Input value={data.linkedin} onChange={(e) => setData({ ...data, linkedin: e.target.value })} /></div>
+              <div className="space-y-1.5"><Label>Twitter</Label><Input value={data.twitter} onChange={(e) => setData({ ...data, twitter: e.target.value })} /></div>
+              <div className="space-y-1.5"><Label>GitHub</Label><Input value={data.github} onChange={(e) => setData({ ...data, github: e.target.value })} /></div>
             </div>
           </div>
           <div className="p-5">
