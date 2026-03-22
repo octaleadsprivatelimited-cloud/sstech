@@ -1,66 +1,69 @@
-import { Shield, TrendingUp, Lock, Award } from "lucide-react";
+import { Shield, TrendingUp, Lock, Award, Handshake, Eye } from "lucide-react";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
-const reasons = [
+const values = [
   {
     icon: Shield,
-    title: "Certified Experts",
-    description: "Our team comprises certified professionals with deep expertise across all technology domains.",
-    color: "from-[hsl(330,85%,55%)] to-[hsl(350,80%,45%)]",
-  },
-  {
-    icon: TrendingUp,
-    title: "Enterprise-Grade Solutions",
-    description: "We deliver scalable, enterprise-ready implementations that grow with your business needs.",
-    color: "from-[hsl(35,90%,55%)] to-[hsl(20,85%,50%)]",
+    title: "Integrity",
+    description: "We uphold high ethical standards and act with honesty, transparency, and professionalism in all interactions.",
   },
   {
     icon: Lock,
-    title: "Client-Centric Approach",
-    description: "Every solution is tailored to your unique business requirements with dedicated project teams.",
-    color: "from-[hsl(280,70%,55%)] to-[hsl(310,80%,50%)]",
+    title: "Trust & Confidentiality",
+    description: "We understand the importance of trust and confidentiality in every client relationship we build.",
+  },
+  {
+    icon: Eye,
+    title: "Objectivity",
+    description: "We provide unbiased advice based on thorough analysis and comprehensive understanding of your needs.",
   },
   {
     icon: Award,
-    title: "Rapid Deployment",
-    description: "Accelerated implementation methodologies ensure faster time-to-value for your investments.",
-    color: "from-[hsl(200,80%,50%)] to-[hsl(220,85%,55%)]",
+    title: "Expertise",
+    description: "We stay up-to-date with industry trends, regulations, and best practices to offer informed solutions.",
+  },
+  {
+    icon: Handshake,
+    title: "Long-Term Relationships",
+    description: "We build lasting partnerships based on trust, open communication, and mutual respect.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Accountability",
+    description: "We monitor progress, review strategies, and make adjustments to help clients stay on track.",
   },
 ];
 
 const WhyChooseUs = () => {
   return (
-    <section className="py-20 md:py-28 bg-background relative overflow-hidden">
-      <div className="absolute top-1/2 left-0 w-[300px] h-[300px] bg-[hsl(330,85%,55%)]/[0.03] rounded-full blur-[80px] -translate-y-1/2" />
-
-      <div className="container mx-auto px-5 md:px-8 relative z-10">
+    <section className="py-20 md:py-28 bg-background relative">
+      <div className="container mx-auto px-5 md:px-8">
         <ScrollReveal>
-          <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[hsl(var(--electric))] mb-4">
-              Why Choose Us
-            </p>
+          <div className="max-w-2xl mx-auto text-center mb-12 md:mb-16">
             <h2
-              className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-tight"
+              className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight"
               style={{ textWrap: "balance" }}
             >
-              Your Trusted Partner for{" "}
-              <span className="text-gradient">Technology Excellence</span>
+              Guided by integrity, trust, and client-centricity
             </h2>
+            <p className="text-sm sm:text-base text-white/40 mt-4" style={{ textWrap: "pretty" }}>
+              Our values drive everything we do
+            </p>
           </div>
         </ScrollReveal>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
-          {reasons.map((reason, i) => (
-            <ScrollReveal key={reason.title} delay={i * 0.08}>
-              <div className="glass-card rounded-2xl p-6 sm:p-7 text-center hover:bg-white/[0.06] transition-all duration-300 group h-full">
-                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${reason.color} flex items-center justify-center mx-auto mb-5 group-hover:scale-105 transition-transform`}>
-                  <reason.icon className="w-6 h-6 text-white" />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+          {values.map((item, i) => (
+            <ScrollReveal key={item.title} delay={i * 0.07}>
+              <div className="bg-[hsl(var(--surface))] rounded-2xl p-6 sm:p-7 border border-white/[0.06] hover:border-white/[0.12] transition-all duration-300 h-full">
+                <div className="w-11 h-11 rounded-lg bg-[hsl(var(--electric))]/10 flex items-center justify-center mb-4">
+                  <item.icon className="w-5 h-5 text-[hsl(var(--electric))]" />
                 </div>
-                <h3 className="font-heading font-semibold text-base text-white mb-3">
-                  {reason.title}
+                <h3 className="font-heading font-semibold text-base text-white mb-2">
+                  {item.title}
                 </h3>
                 <p className="text-sm text-white/40 leading-relaxed">
-                  {reason.description}
+                  {item.description}
                 </p>
               </div>
             </ScrollReveal>

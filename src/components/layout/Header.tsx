@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo.jpeg";
@@ -30,12 +30,12 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "glass-header border-b border-white/[0.06] shadow-lg shadow-black/20"
+          ? "bg-[hsl(var(--navy))]/95 backdrop-blur-xl border-b border-white/[0.06] shadow-lg shadow-black/20"
           : "bg-transparent"
       }`}
     >
       <div className="container mx-auto flex items-center justify-between h-16 md:h-20 px-4 md:px-8">
-        <Link to="/" className="flex items-center gap-2.5 group">
+        <Link to="/" className="flex items-center gap-2.5">
           <img src={logo} alt="Sthanu Setu Technologies" className="w-9 h-9 rounded-full object-cover ring-2 ring-white/10" />
           <span className="font-heading font-semibold text-base md:text-lg text-white hidden sm:block">
             Sthanu Setu
@@ -59,8 +59,12 @@ const Header = () => {
         </nav>
 
         <div className="flex items-center gap-3">
+          <a href="tel:+917675843214" className="hidden lg:flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors">
+            <Phone className="w-4 h-4" />
+            +91 76758 43214
+          </a>
           <Link to="/contact" className="hidden md:block">
-            <Button className="bg-gradient-brand text-white font-medium px-5 h-9 text-sm rounded-full active:scale-[0.97] transition-all shadow-lg shadow-[hsl(330,85%,55%)]/20 hover:shadow-[hsl(330,85%,55%)]/30 hover:brightness-110">
+            <Button className="bg-gradient-brand text-white font-medium px-5 h-9 text-sm rounded-full active:scale-[0.97] transition-all shadow-lg shadow-[hsl(var(--electric))]/20 hover:brightness-110">
               Contact Us
             </Button>
           </Link>
@@ -80,7 +84,7 @@ const Header = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass-header border-b border-white/[0.06] overflow-hidden"
+            className="md:hidden bg-[hsl(var(--navy))]/95 backdrop-blur-xl border-b border-white/[0.06] overflow-hidden"
           >
             <nav className="flex flex-col p-4 gap-1">
               {navLinks.map((link) => (
