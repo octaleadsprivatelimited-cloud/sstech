@@ -1,4 +1,5 @@
-import { Briefcase, Code2, Users, Wrench, CheckCircle2 } from "lucide-react";
+import { Briefcase, Code2, Users, Wrench, CheckCircle2, MessageCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import heroServices from "@/assets/hero-services.jpg";
 import serviceConsulting from "@/assets/service-consulting.jpg";
@@ -78,7 +79,7 @@ const Services = () => {
                     <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1" style={{ textWrap: "pretty" }}>
                       {service.description}
                     </p>
-                    <ul className="space-y-2">
+                    <ul className="space-y-2 mb-5">
                       {service.benefits.map((b) => (
                         <li key={b} className="flex items-center gap-2 text-xs text-foreground">
                           <CheckCircle2 className="w-4 h-4 text-electric shrink-0" />
@@ -86,6 +87,20 @@ const Services = () => {
                         </li>
                       ))}
                     </ul>
+                    <Button
+                      asChild
+                      size="sm"
+                      className="bg-[#25D366] hover:bg-[#1da851] text-white font-medium active:scale-[0.97] w-full"
+                    >
+                      <a
+                        href={`https://wa.me/917675843214?text=${encodeURIComponent(`Hi, I'm interested in your "${service.title}" service. Can you share more details?`)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <MessageCircle className="w-4 h-4" />
+                        Contact on WhatsApp
+                      </a>
+                    </Button>
                   </div>
                 </div>
               </ScrollReveal>

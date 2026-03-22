@@ -1,9 +1,9 @@
-import { Search, FileText, CheckCircle, Briefcase, MapPin, Clock } from "lucide-react";
+import { Search, FileText, CheckCircle, Briefcase, MapPin, Clock, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import ScrollReveal from "@/components/shared/ScrollReveal";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import heroCareers from "@/assets/hero-careers.jpg";
 import { toast } from "sonner";
 
@@ -22,6 +22,14 @@ const jobs = [
 
 const Careers = () => {
   const [formData, setFormData] = useState({ name: "", email: "", role: "", message: "" });
+  const formRef = useRef<HTMLDivElement>(null);
+
+  const handleApply = (jobTitle: string) => {
+    setFormData((prev) => ({ ...prev, role: jobTitle }));
+    setTimeout(() => {
+      formRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 100);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -98,7 +106,7 @@ const Careers = () => {
                       </div>
                     </div>
                   </div>
-                  <Button variant="outline" size="sm" className="shrink-0 active:scale-[0.97]">Apply Now</Button>
+                  <Button variant="outline" size="sm" className="shrink-0 active:scale-[0.97]" onClick={() => handleApply(job.title)}>Apply Now</Button>
                 </div>
               </ScrollReveal>
             ))}
@@ -110,7 +118,7 @@ const Careers = () => {
       <section className="py-24 bg-surface">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal>
-            <div className="max-w-xl mx-auto">
+            <div ref={formRef} className="max-w-xl mx-auto">
               <div className="text-center mb-10">
                 <p className="text-sm font-semibold uppercase tracking-wider text-electric mb-3">Apply Now</p>
                 <h2 className="font-heading text-3xl font-bold text-navy">Send us your application</h2>
@@ -120,9 +128,25 @@ const Careers = () => {
                 <Input type="email" placeholder="Email Address" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
                 <Input placeholder="Desired Role" value={formData.role} onChange={(e) => setFormData({ ...formData, role: e.target.value })} required />
                 <Textarea placeholder="Cover letter or additional information..." rows={4} value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} />
-                <Button type="submit" className="w-full bg-electric hover:bg-electric/90 text-accent-foreground font-medium active:scale-[0.97]">
-                  Submit Application
-                </Button>
+                <div className="flex gap-3">
+                  <Button type="submit" className="flex-1 bg-electric hover:bg-electric/90 text-accent-foreground font-medium active:scale-[0.97]">
+                    Submit Application
+                  </Button>
+                  <Button
+                    asChild
+                    type="button"
+                    className="bg-[#25D366] hover:bg-[#1da851] text-white font-medium active:scale-[0.97]"
+                  >
+                    <a
+                      href={`https://wa.me/917675843214?text=${encodeURIComponent(`Hi, I'd like to apply for the "${formData.role || 'open'}" position. Here are my details:\nName: ${formData.name}\nEmail: ${formData.email}`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <MessageCircle className="w-4 h-4" />
+                      WhatsApp
+                    </a>
+                  </Button>
+                </div>
               </form>
             </div>
           </ScrollReveal>

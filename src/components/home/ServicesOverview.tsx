@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Briefcase, Code2, Users, Wrench, ArrowRight } from "lucide-react";
+import { Briefcase, Code2, Users, Wrench, ArrowRight, MessageCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import serviceConsulting from "@/assets/service-consulting.jpg";
 import serviceDevelopment from "@/assets/service-development.jpg";
@@ -73,12 +74,28 @@ const ServicesOverview = () => {
                   <p className="text-sm text-muted-foreground leading-relaxed flex-1" style={{ textWrap: "pretty" }}>
                     {service.description}
                   </p>
-                  <Link
-                    to="/services"
-                    className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-electric hover:gap-2 transition-all"
-                  >
-                    Learn More <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
+                  <div className="mt-5 flex flex-col gap-2">
+                    <Link
+                      to="/services"
+                      className="inline-flex items-center gap-1 text-sm font-medium text-electric hover:gap-2 transition-all"
+                    >
+                      Learn More <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                    <Button
+                      asChild
+                      size="sm"
+                      className="bg-[#25D366] hover:bg-[#1da851] text-white font-medium active:scale-[0.97] w-full"
+                    >
+                      <a
+                        href={`https://wa.me/917675843214?text=${encodeURIComponent(`Hi, I'm interested in your "${service.title}" service. Can you share more details?`)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <MessageCircle className="w-4 h-4" />
+                        WhatsApp
+                      </a>
+                    </Button>
+                  </div>
                 </div>
               </div>
             </ScrollReveal>
