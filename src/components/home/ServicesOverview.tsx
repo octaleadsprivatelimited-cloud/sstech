@@ -15,10 +15,10 @@ const defaultContact: ContactInfo = { email: "", phone: "", address: "", whatsap
 
 const serviceIcons = [Monitor, Code2, Users, Wrench];
 const iconColors = [
-  "from-[hsl(330,85%,55%)] to-[hsl(280,80%,55%)]",
-  "from-[hsl(200,90%,50%)] to-[hsl(220,85%,55%)]",
-  "from-[hsl(35,90%,55%)] to-[hsl(15,85%,55%)]",
-  "from-[hsl(150,70%,45%)] to-[hsl(170,80%,40%)]",
+  "from-[hsl(330,85%,55%)] to-[hsl(350,80%,45%)]",
+  "from-[hsl(35,90%,55%)] to-[hsl(20,85%,50%)]",
+  "from-[hsl(330,70%,50%)] to-[hsl(35,85%,55%)]",
+  "from-[hsl(15,85%,55%)] to-[hsl(330,80%,50%)]",
 ];
 
 const ServicesOverview = () => {
