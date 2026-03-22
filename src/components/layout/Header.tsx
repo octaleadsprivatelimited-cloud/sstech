@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+import logo from "@/assets/logo.jpeg";
 
 const navLinks = [
   { label: "Home", path: "/" },
@@ -33,9 +34,7 @@ const Header = () => {
     >
       <div className="container mx-auto flex items-center justify-between h-16 md:h-20 px-4 md:px-8">
         <Link to="/" className="flex items-center gap-2 group">
-          <div className="w-9 h-9 rounded-lg bg-electric flex items-center justify-center font-heading font-bold text-sm text-accent-foreground tracking-tight">
-            SST
-          </div>
+          <img src={logo} alt="Sthanu Setu Technologies" className="w-9 h-9 rounded-lg object-cover" />
           <span className={`font-heading font-semibold text-base md:text-lg hidden sm:block transition-colors ${scrolled ? 'text-navy' : 'text-primary-foreground'}`}>
             Sthanu Setu
           </span>
