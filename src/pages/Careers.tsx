@@ -1,9 +1,9 @@
-import { Search, FileText, CheckCircle, Briefcase, MapPin, Clock } from "lucide-react";
+import { Search, FileText, CheckCircle, Briefcase, MapPin, Clock, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import ScrollReveal from "@/components/shared/ScrollReveal";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import heroCareers from "@/assets/hero-careers.jpg";
 import { toast } from "sonner";
 
@@ -22,6 +22,14 @@ const jobs = [
 
 const Careers = () => {
   const [formData, setFormData] = useState({ name: "", email: "", role: "", message: "" });
+  const formRef = useRef<HTMLDivElement>(null);
+
+  const handleApply = (jobTitle: string) => {
+    setFormData((prev) => ({ ...prev, role: jobTitle }));
+    setTimeout(() => {
+      formRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 100);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
