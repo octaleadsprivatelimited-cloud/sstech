@@ -160,7 +160,10 @@ const Footer = () => {
             © {new Date().getFullYear()} Sthanu Setu Technologies. All rights reserved.
           </p>
           <p className="text-xs text-primary-foreground/40">
-            Powered by Sthanu Setu Technologies
+            Developed by{" "}
+            <a href="https://octaleads.com" target="_blank" rel="noopener noreferrer" className="text-primary-foreground/60 hover:text-primary-foreground underline transition-colors">
+              Octaleads Pvt. Ltd.
+            </a>
           </p>
         </div>
       </div>
