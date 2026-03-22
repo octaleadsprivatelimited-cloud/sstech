@@ -1,4 +1,5 @@
-import { Briefcase, Code2, Users, Wrench, CheckCircle2 } from "lucide-react";
+import { Briefcase, Code2, Users, Wrench, CheckCircle2, MessageCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import heroServices from "@/assets/hero-services.jpg";
 import serviceConsulting from "@/assets/service-consulting.jpg";
