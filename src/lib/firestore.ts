@@ -180,49 +180,49 @@ const getOrSeedSingleDoc = async <T extends Record<string, any>>(
 };
 
 // ─── Hero ────────────────────────────────────────
-export const getHero = () => getSingleDoc<HeroData>("siteContent", "hero");
+export const getHero = () => getOrSeedSingleDoc<HeroData>("siteContent", "hero", defaultHero);
 export const saveHero = (data: HeroData) => setSingleDoc("siteContent", "hero", data);
 
 // ─── Services ────────────────────────────────────
-export const getServices = () => getCollection<ServiceItem>("services", "order");
+export const getServices = () => getOrSeedCollection<ServiceItem>("services", "order", defaultServices as any);
 export const addService = (data: Omit<ServiceItem, "id">) => addItem("services", data);
 export const updateService = (id: string, data: Partial<ServiceItem>) => updateItem("services", id, data);
 export const deleteService = (id: string) => deleteItem("services", id);
 
 // ─── Stats ───────────────────────────────────────
-export const getStats = () => getCollection<StatItem>("stats", "order");
+export const getStats = () => getOrSeedCollection<StatItem>("stats", "order", defaultStats as any);
 export const addStat = (data: Omit<StatItem, "id">) => addItem("stats", data);
 export const updateStat = (id: string, data: Partial<StatItem>) => updateItem("stats", id, data);
 export const deleteStat = (id: string) => deleteItem("stats", id);
 
 // ─── Testimonials ────────────────────────────────
-export const getTestimonials = () => getCollection<TestimonialItem>("testimonials");
+export const getTestimonials = () => getOrSeedCollection<TestimonialItem>("testimonials", undefined, defaultTestimonials as any);
 export const addTestimonial = (data: Omit<TestimonialItem, "id">) => addItem("testimonials", data);
 export const updateTestimonial = (id: string, data: Partial<TestimonialItem>) => updateItem("testimonials", id, data);
 export const deleteTestimonial = (id: string) => deleteItem("testimonials", id);
 
 // ─── Jobs ────────────────────────────────────────
-export const getJobs = () => getCollection<JobItem>("jobs");
+export const getJobs = () => getOrSeedCollection<JobItem>("jobs", undefined, defaultJobs as any);
 export const addJob = (data: Omit<JobItem, "id">) => addItem("jobs", data);
 export const updateJob = (id: string, data: Partial<JobItem>) => updateItem("jobs", id, data);
 export const deleteJob = (id: string) => deleteItem("jobs", id);
 
 // ─── Team ────────────────────────────────────────
-export const getTeam = () => getCollection<TeamMember>("team", "order");
+export const getTeam = () => getOrSeedCollection<TeamMember>("team", "order", defaultTeam as any);
 export const addTeamMember = (data: Omit<TeamMember, "id">) => addItem("team", data);
 export const updateTeamMember = (id: string, data: Partial<TeamMember>) => updateItem("team", id, data);
 export const deleteTeamMember = (id: string) => deleteItem("team", id);
 
 // ─── Contact Info ────────────────────────────────
-export const getContactInfo = () => getSingleDoc<ContactInfo>("siteContent", "contact");
+export const getContactInfo = () => getOrSeedSingleDoc<ContactInfo>("siteContent", "contact", defaultContact);
 export const saveContactInfo = (data: ContactInfo) => setSingleDoc("siteContent", "contact", data);
 
 // ─── About ───────────────────────────────────────
-export const getAbout = () => getSingleDoc<AboutData>("siteContent", "about");
+export const getAbout = () => getOrSeedSingleDoc<AboutData>("siteContent", "about", defaultAbout);
 export const saveAbout = (data: AboutData) => setSingleDoc("siteContent", "about", data);
 
 // ─── Page Banners ────────────────────────────────
-export const getPageBanner = (page: string) => getSingleDoc<PageBanner>("pageBanners", page);
+export const getPageBanner = (page: string) => getOrSeedSingleDoc<PageBanner>("pageBanners", page, defaultBanners[page] || { title: "", subtitle: "", bgImage: "" });
 export const savePageBanner = (page: string, data: PageBanner) => setSingleDoc("pageBanners", page, data);
 
 // ─── Contact Form Submissions ────────────────────
