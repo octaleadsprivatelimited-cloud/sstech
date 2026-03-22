@@ -60,7 +60,7 @@ const HeroSection = () => {
             <Link to="/services">
               <Button
                 size="lg"
-                className="bg-electric hover:bg-electric/90 text-accent-foreground font-semibold px-7 h-12 text-base active:scale-[0.97] transition-all shadow-lg shadow-electric/20"
+                className="bg-electric hover:bg-electric/90 text-white font-semibold px-7 h-12 text-base active:scale-[0.97] transition-all shadow-lg shadow-electric/20"
               >
                 Our Services
                 <ArrowRight className="w-4 h-4 ml-2" />
