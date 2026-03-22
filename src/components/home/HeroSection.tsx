@@ -2,22 +2,18 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
-
-const FloatingShape = ({ className }: { className: string }) => (
-  <div className={`absolute rounded-2xl opacity-[0.07] ${className}`} />
-);
+import heroBg from "@/assets/hero-home.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[92vh] flex items-center hero-gradient overflow-hidden">
-      {/* Floating geometric shapes */}
-      <FloatingShape className="w-64 h-64 bg-electric rotate-12 -top-20 -right-20 animate-float" />
-      <FloatingShape className="w-48 h-48 bg-gold -bottom-10 left-[10%] rotate-45 animate-float-delayed" />
-      <FloatingShape className="w-32 h-32 bg-electric top-[30%] right-[15%] rotate-[30deg] animate-float" />
-      <FloatingShape className="w-20 h-20 bg-gold top-[20%] left-[5%] rotate-[60deg] animate-float-delayed" />
-      
-      {/* Radial glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-electric/5 blur-[120px] animate-pulse-glow" />
+    <section className="relative min-h-[92vh] flex items-center overflow-hidden">
+      {/* Background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${heroBg})` }}
+      />
+      {/* Overlay for consistent text legibility */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[hsl(220,60%,10%)]/80 via-[hsl(220,60%,10%)]/50 to-transparent" />
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         <div className="max-w-3xl">
@@ -49,7 +45,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-6 text-lg md:text-xl text-primary-foreground/60 leading-relaxed max-w-xl"
+            className="mt-6 text-lg md:text-xl text-primary-foreground/70 leading-relaxed max-w-xl"
             style={{ textWrap: "pretty" }}
           >
             We help businesses grow through secure, efficient, and future-ready technology. From consulting to custom software — we deliver results.
