@@ -63,7 +63,7 @@ const AdminStats = () => {
       {editing ? (
         <div className="bg-surface-raised rounded-xl border border-border/50 p-5 space-y-4">
           <h3 className="font-heading font-semibold text-sm text-navy">{isNew ? "New Stat" : "Edit Stat"}</h3>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div className="space-y-1.5"><Label>Value</Label><Input type="number" value={editing.end} onChange={(e) => setEditing({ ...editing, end: parseInt(e.target.value) || 0 })} /></div>
             <div className="space-y-1.5"><Label>Suffix</Label><Input value={editing.suffix} onChange={(e) => setEditing({ ...editing, suffix: e.target.value })} placeholder="+ or %" /></div>
             <div className="space-y-1.5"><Label>Order</Label><Input type="number" value={editing.order} onChange={(e) => setEditing({ ...editing, order: parseInt(e.target.value) || 0 })} /></div>
