@@ -18,47 +18,48 @@ const reasons = [
     icon: Lock,
     title: "Client-Centric Approach",
     description: "Every solution is tailored to your unique business requirements with dedicated project teams.",
-    color: "from-[hsl(330,70%,50%)] to-[hsl(35,85%,55%)]",
+    color: "from-[hsl(280,70%,55%)] to-[hsl(310,80%,50%)]",
   },
   {
     icon: Award,
     title: "Rapid Deployment",
     description: "Accelerated implementation methodologies ensure faster time-to-value for your investments.",
-    color: "from-[hsl(15,85%,55%)] to-[hsl(330,80%,50%)]",
+    color: "from-[hsl(200,80%,50%)] to-[hsl(220,85%,55%)]",
   },
 ];
 
 const WhyChooseUs = () => {
   return (
     <section className="py-20 md:py-28 bg-background relative overflow-hidden">
+      <div className="absolute top-1/2 left-0 w-[300px] h-[300px] bg-[hsl(330,85%,55%)]/[0.03] rounded-full blur-[80px] -translate-y-1/2" />
+
       <div className="container mx-auto px-5 md:px-8 relative z-10">
         <ScrollReveal>
           <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
-            <div className="inline-flex items-center gap-2 bg-[hsl(var(--electric))]/10 rounded-full px-4 py-1.5 mb-4">
-              <span className="text-xs font-semibold uppercase tracking-[0.15em] text-[hsl(var(--electric))]">
-                Our Strengths
-              </span>
-            </div>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[hsl(var(--electric))] mb-4">
+              Why Choose Us
+            </p>
             <h2
-              className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-gradient leading-tight"
+              className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-tight"
               style={{ textWrap: "balance" }}
             >
-              Your Trusted Partner for Technology Excellence
+              Your Trusted Partner for{" "}
+              <span className="text-gradient">Technology Excellence</span>
             </h2>
           </div>
         </ScrollReveal>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
           {reasons.map((reason, i) => (
             <ScrollReveal key={reason.title} delay={i * 0.08}>
-              <div className="bg-card rounded-2xl border border-border p-6 sm:p-7 text-center hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1 transition-all duration-300 group h-full">
-                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${reason.color} flex items-center justify-center mx-auto mb-5`}>
+              <div className="glass-card rounded-2xl p-6 sm:p-7 text-center hover:bg-white/[0.06] transition-all duration-300 group h-full">
+                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${reason.color} flex items-center justify-center mx-auto mb-5 group-hover:scale-105 transition-transform`}>
                   <reason.icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="font-heading font-semibold text-base text-foreground mb-3">
+                <h3 className="font-heading font-semibold text-base text-white mb-3">
                   {reason.title}
                 </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-sm text-white/40 leading-relaxed">
                   {reason.description}
                 </p>
               </div>
