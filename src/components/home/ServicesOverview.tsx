@@ -54,7 +54,7 @@ const ServicesOverview = () => {
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {services.map((service, i) => (
             <ScrollReveal key={service.title} delay={i * 0.08}>
               <div className="bg-surface-raised rounded-xl overflow-hidden h-full flex flex-col card-lift border border-border/50 group">
