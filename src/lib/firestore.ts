@@ -79,20 +79,18 @@ export interface PageBanner {
   bgImage: string;
 }
 
-// ─── Image Upload ────────────────────────────────
-export const uploadImage = async (file: File, path: string): Promise<string> => {
-  const storageRef = ref(storage, `images/${path}/${Date.now()}_${file.name}`);
-  await uploadBytes(storageRef, file);
-  return getDownloadURL(storageRef);
+// ─── Image Upload (base64 stored in Firestore) ──
+export const uploadImage = async (file: File, _path: string): Promise<string> => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result as string);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
 };
 
-export const deleteImage = async (url: string) => {
-  try {
-    const storageRef = ref(storage, url);
-    await deleteObject(storageRef);
-  } catch (e) {
-    console.warn("Could not delete image:", e);
-  }
+export const deleteImage = async (_url: string) => {
+  // No-op: base64 images are stored inline in Firestore documents
 };
 
 // ─── Generic CRUD ────────────────────────────────
