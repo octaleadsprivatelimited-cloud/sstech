@@ -57,40 +57,40 @@ const Services = () => {
       </section>
 
       <section className="py-24 bg-surface">
-        <div className="container mx-auto px-4 md:px-8 space-y-20">
-          {services.map((service, i) => (
-            <ScrollReveal key={service.title}>
-              <div className={`grid lg:grid-cols-2 gap-12 items-center ${i % 2 === 1 ? "lg:direction-rtl" : ""}`}>
-                <div className={i % 2 === 1 ? "lg:order-2" : ""}>
-                  <div className="w-14 h-14 rounded-xl bg-electric/10 flex items-center justify-center mb-6">
-                    <service.icon className="w-7 h-7 text-electric" />
-                  </div>
-                  <h2 className="font-heading text-2xl md:text-3xl font-bold text-navy mb-4">{service.title}</h2>
-                  <p className="text-muted-foreground leading-relaxed mb-6" style={{ textWrap: "pretty" }}>
-                    {service.description}
-                  </p>
-                  <ul className="space-y-3">
-                    {service.benefits.map((b) => (
-                      <li key={b} className="flex items-center gap-3 text-sm text-foreground">
-                        <CheckCircle2 className="w-5 h-5 text-electric shrink-0" />
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className={i % 2 === 1 ? "lg:order-1" : ""}>
-                  <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-border/50 shadow-lg">
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {services.map((service, i) => (
+              <ScrollReveal key={service.title} delay={i * 0.08}>
+                <div className="bg-surface-raised rounded-xl overflow-hidden h-full flex flex-col card-lift border border-border/50 group">
+                  <div className="aspect-[16/10] overflow-hidden">
                     <img
                       src={service.image}
                       alt={service.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />
                   </div>
+                  <div className="p-6 flex flex-col flex-1">
+                    <div className="w-10 h-10 rounded-lg bg-electric/10 flex items-center justify-center mb-4 group-hover:bg-electric/20 transition-colors">
+                      <service.icon className="w-5 h-5 text-electric" />
+                    </div>
+                    <h3 className="font-heading font-semibold text-lg text-navy mb-2">{service.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1" style={{ textWrap: "pretty" }}>
+                      {service.description}
+                    </p>
+                    <ul className="space-y-2">
+                      {service.benefits.map((b) => (
+                        <li key={b} className="flex items-center gap-2 text-xs text-foreground">
+                          <CheckCircle2 className="w-4 h-4 text-electric shrink-0" />
+                          {b}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-              </div>
-            </ScrollReveal>
-          ))}
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </section>
     </>
