@@ -1,5 +1,6 @@
 import { Briefcase, Code2, Users, Wrench, CheckCircle2 } from "lucide-react";
 import ScrollReveal from "@/components/shared/ScrollReveal";
+import heroServices from "@/assets/hero-services.jpg";
 
 const services = [
   {
