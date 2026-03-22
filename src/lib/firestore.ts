@@ -1,9 +1,8 @@
-import { db, storage } from "./firebase";
+import { db } from "./firebase";
 import {
   collection, doc, getDocs, getDoc, addDoc, updateDoc, deleteDoc, setDoc,
   query, orderBy, Timestamp
 } from "firebase/firestore";
-import { ref, uploadBytes, getDownloadURL, deleteObject } from "firebase/storage";
 
 // ─── Types ───────────────────────────────────────
 export interface HeroData {
