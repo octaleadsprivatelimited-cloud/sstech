@@ -71,7 +71,7 @@ const Services = () => {
                       loading="lazy"
                     />
                   </div>
-                  <div className="p-6 flex flex-col flex-1">
+                  <div className="p-4 sm:p-6 flex flex-col flex-1">
                     <div className="w-10 h-10 rounded-lg bg-electric/10 flex items-center justify-center mb-4 group-hover:bg-electric/20 transition-colors">
                       <service.icon className="w-5 h-5 text-electric" />
                     </div>
