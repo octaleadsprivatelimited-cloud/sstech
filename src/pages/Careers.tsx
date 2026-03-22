@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import { useState } from "react";
+import heroCareers from "@/assets/hero-careers.jpg";
 import { toast } from "sonner";
 
 const steps = [
