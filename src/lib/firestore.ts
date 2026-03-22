@@ -79,18 +79,42 @@ export interface PageBanner {
   bgImage: string;
 }
 
-// ─── Image Upload (base64 stored in Firestore) ──
-export const uploadImage = async (file: File, _path: string): Promise<string> => {
+// ─── Image Compression & Upload (base64 in Firestore) ──
+const compressImage = (file: File, maxWidth = 1200, quality = 0.7): Promise<string> => {
   return new Promise((resolve, reject) => {
+    const img = new Image();
     const reader = new FileReader();
-    reader.onload = () => resolve(reader.result as string);
+    reader.onload = () => {
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+        let w = img.width;
+        let h = img.height;
+        if (w > maxWidth) {
+          h = (h * maxWidth) / w;
+          w = maxWidth;
+        }
+        canvas.width = w;
+        canvas.height = h;
+        const ctx = canvas.getContext("2d")!;
+        ctx.drawImage(img, 0, 0, w, h);
+        resolve(canvas.toDataURL("image/webp", quality));
+      };
+      img.onerror = reject;
+      img.src = reader.result as string;
+    };
     reader.onerror = reject;
     reader.readAsDataURL(file);
   });
 };
 
+export const uploadImage = async (file: File, _path: string): Promise<string> => {
+  // Compress images to webp, max 1200px wide, 70% quality
+  return compressImage(file);
+};
+
 export const deleteImage = async (_url: string) => {
   // No-op: base64 images are stored inline in Firestore documents
+};
 };
 
 // ─── Generic CRUD ────────────────────────────────
