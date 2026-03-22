@@ -62,7 +62,7 @@ const AdminDashboard = () => {
       </div>
 
       {/* Section Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {sections.map((s) => (
           <Link key={s.path} to={s.path} className="bg-surface-raised rounded-xl p-5 border border-border/50 hover:shadow-md hover:border-electric/20 transition-all group">
             <div className="flex items-start justify-between mb-4">
