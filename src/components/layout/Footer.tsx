@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Linkedin, Twitter, Github, Mail, Phone, MapPin, ChevronDown } from "lucide-react";
 import footerBg from "@/assets/footer-bg.jpg";
+import logo from "@/assets/logo.jpeg";
 
 const footerSections = [
   {
