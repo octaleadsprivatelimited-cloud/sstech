@@ -11,54 +11,54 @@ const services = [
   {
     icon: Briefcase,
     title: "IT Consulting",
-    description:
-      "Strategic guidance for better technology decisions. Professional support and expert solutions for your business and IT needs.",
+    shortDesc: "Strategic guidance for smarter technology decisions.",
+    description: "Strategic guidance for better technology decisions. Professional support and expert solutions for your business and IT needs.",
     image: serviceConsulting,
   },
   {
     icon: Code2,
     title: "Software Development",
-    description:
-      "Custom-built applications tailored to your unique business requirements, from web platforms to enterprise systems.",
+    shortDesc: "Custom apps tailored to your business needs.",
+    description: "Custom-built applications tailored to your unique business requirements, from web platforms to enterprise systems.",
     image: serviceDevelopment,
   },
   {
     icon: Users,
     title: "Job Placements",
-    description:
-      "Connecting top talent with direct clients. We help professionals find the right career path and companies find the right people.",
+    shortDesc: "Connecting talent with the right opportunities.",
+    description: "Connecting top talent with direct clients. We help professionals find the right career path and companies find the right people.",
     image: servicePlacements,
   },
   {
     icon: Wrench,
     title: "Support & Maintenance",
-    description:
-      "Reliable ongoing technical support to keep your systems running smoothly, securely, and efficiently.",
+    shortDesc: "Reliable support to keep systems running smoothly.",
+    description: "Reliable ongoing technical support to keep your systems running smoothly, securely, and efficiently.",
     image: serviceSupport,
   },
 ];
 
 const ServicesOverview = () => {
   return (
-    <section className="py-24 md:py-32 bg-surface">
+    <section className="py-16 md:py-32 bg-surface">
       <div className="container mx-auto px-4 md:px-8">
         <ScrollReveal>
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <p className="text-sm font-semibold uppercase tracking-wider text-electric mb-3">What We Do</p>
+          <div className="text-center max-w-2xl mx-auto mb-8 md:mb-16">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-electric mb-2">What We Do</p>
             <h2
-              className="font-heading text-3xl md:text-4xl font-bold text-navy leading-tight"
+              className="font-heading text-2xl md:text-4xl font-bold text-navy leading-tight"
               style={{ textWrap: "balance" }}
             >
-              End-to-end technology solutions built for scale
+              End-to-end technology solutions
             </h2>
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
           {services.map((service, i) => (
             <ScrollReveal key={service.title} delay={i * 0.08}>
               <div className="bg-surface-raised rounded-xl overflow-hidden h-full flex flex-col card-lift border border-border/50 group">
-                <div className="aspect-[16/10] overflow-hidden">
+                <div className="hidden sm:block aspect-[16/10] overflow-hidden">
                   <img
                     src={service.image}
                     alt={service.title}
@@ -66,32 +66,35 @@ const ServicesOverview = () => {
                     loading="lazy"
                   />
                 </div>
-                <div className="p-7 flex flex-col flex-1">
-                  <div className="w-10 h-10 rounded-lg bg-electric/10 flex items-center justify-center mb-4 group-hover:bg-electric/20 transition-colors">
-                    <service.icon className="w-5 h-5 text-electric" />
+                <div className="p-3 sm:p-7 flex flex-col flex-1">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-electric/10 flex items-center justify-center mb-2 sm:mb-4 group-hover:bg-electric/20 transition-colors">
+                    <service.icon className="w-4 h-4 sm:w-5 sm:h-5 text-electric" />
                   </div>
-                  <h3 className="font-heading font-semibold text-lg text-navy mb-3">{service.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed flex-1" style={{ textWrap: "pretty" }}>
+                  <h3 className="font-heading font-semibold text-sm sm:text-lg text-navy mb-1 sm:mb-3">{service.title}</h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed flex-1 hidden sm:block">
                     {service.description}
                   </p>
-                  <div className="mt-5 flex flex-col gap-2">
+                  <p className="text-[11px] text-muted-foreground leading-snug flex-1 sm:hidden">
+                    {service.shortDesc}
+                  </p>
+                  <div className="mt-3 sm:mt-5 flex flex-col gap-1.5 sm:gap-2">
                     <Link
                       to="/services"
-                      className="inline-flex items-center gap-1 text-sm font-medium text-electric hover:gap-2 transition-all"
+                      className="inline-flex items-center gap-1 text-xs sm:text-sm font-medium text-electric hover:gap-2 transition-all"
                     >
-                      Learn More <ArrowRight className="w-3.5 h-3.5" />
+                      Learn More <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                     </Link>
                     <Button
                       asChild
                       size="sm"
-                      className="bg-[#25D366] hover:bg-[#1da851] text-white font-medium active:scale-[0.97] w-full"
+                      className="bg-[#25D366] hover:bg-[#1da851] text-white font-medium active:scale-[0.97] w-full text-xs sm:text-sm h-7 sm:h-9"
                     >
                       <a
                         href={`https://wa.me/917675843214?text=${encodeURIComponent(`Hi, I'm interested in your "${service.title}" service. Can you share more details?`)}`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <MessageCircle className="w-4 h-4" />
+                        <MessageCircle className="w-3 h-3 sm:w-4 sm:h-4" />
                         WhatsApp
                       </a>
                     </Button>
