@@ -51,7 +51,7 @@ const AdminStats = () => {
       </div>
 
       {/* Preview */}
-      <div className="bg-electric rounded-xl p-4 grid grid-cols-4 gap-3">
+      <div className="bg-electric rounded-xl p-3 sm:p-4 grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
         {stats.map((s) => (
           <div key={s.id || s.label} className="text-center">
             <p className="text-lg sm:text-2xl font-bold text-white font-heading">{s.end}{s.suffix}</p>
