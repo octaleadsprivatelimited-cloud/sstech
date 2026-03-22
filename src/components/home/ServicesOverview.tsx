@@ -76,15 +76,17 @@ const ServicesOverview = () => {
                   <p className="text-[10px] text-muted-foreground leading-snug flex-1 sm:hidden">
                     {service.shortDesc}
                   </p>
+                  <div className="mt-2 sm:mt-5 flex flex-col gap-1.5 sm:gap-2">
+                    <Link
                       to="/services"
-                      className="inline-flex items-center gap-1 text-xs sm:text-sm font-medium text-electric hover:gap-2 transition-all"
+                      className="inline-flex items-center gap-1 text-[10px] sm:text-sm font-medium text-electric hover:gap-2 transition-all"
                     >
-                      Learn More <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                      Learn More <ArrowRight className="w-3 h-3" />
                     </Link>
                     <Button
                       asChild
                       size="sm"
-                      className="bg-[#25D366] hover:bg-[#1da851] text-white font-medium active:scale-[0.97] w-full text-xs sm:text-sm h-7 sm:h-9"
+                      className="bg-[#25D366] hover:bg-[#1da851] text-white font-medium active:scale-[0.97] w-full text-[10px] sm:text-sm h-6 sm:h-9"
                     >
                       <a
                         href={`https://wa.me/917675843214?text=${encodeURIComponent(`Hi, I'm interested in your "${service.title}" service. Can you share more details?`)}`}
