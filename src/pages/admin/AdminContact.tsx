@@ -39,12 +39,12 @@ const AdminContact = () => {
         </div>
       </div>
 
-      <div className="flex gap-2">
+      <div className="flex gap-2 flex-wrap">
         <Button variant={tab === "info" ? "default" : "outline"} size="sm" onClick={() => setTab("info")} className={tab === "info" ? "bg-electric text-white" : ""}>
-          <Mail className="w-4 h-4 mr-1.5" /> Contact Info
+          <Mail className="w-3.5 h-3.5 mr-1" /> Info
         </Button>
         <Button variant={tab === "submissions" ? "default" : "outline"} size="sm" onClick={() => setTab("submissions")} className={tab === "submissions" ? "bg-electric text-white" : ""}>
-          <MessageSquare className="w-4 h-4 mr-1.5" /> Messages ({submissions.length})
+          <MessageSquare className="w-3.5 h-3.5 mr-1" /> Msgs ({submissions.length})
         </Button>
       </div>
 
