@@ -14,19 +14,13 @@ const fallbackServices: ServiceItem[] = [
 const defaultContact: ContactInfo = { email: "", phone: "", address: "", whatsapp: "917675843214", linkedin: "", twitter: "", github: "" };
 
 const serviceIcons = [Monitor, Code2, Users, Wrench];
-const iconColors = [
-  "bg-[hsl(var(--electric))]",
-  "bg-[hsl(var(--gold))]",
-  "bg-[hsl(280,70%,55%)]",
-  "bg-[hsl(200,80%,50%)]",
-];
 
 const ServicesOverview = () => {
   const { data: services } = useFirestoreList(getServices, fallbackServices);
   const { data: contact } = useFirestoreData(getContactInfo, defaultContact);
 
   return (
-    <section className="py-20 md:py-28 bg-background relative">
+    <section className="py-20 md:py-28 bg-background">
       <div className="container mx-auto px-5 md:px-8">
         <ScrollReveal>
           <div className="max-w-2xl mb-12 md:mb-16">
@@ -34,12 +28,12 @@ const ServicesOverview = () => {
               Services
             </p>
             <h2
-              className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight"
+              className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground leading-tight"
               style={{ textWrap: "balance" }}
             >
               To meet your needs
             </h2>
-            <p className="text-sm sm:text-base text-white/40 mt-3 max-w-lg" style={{ textWrap: "pretty" }}>
+            <p className="text-sm sm:text-base text-muted-foreground mt-3 max-w-lg" style={{ textWrap: "pretty" }}>
               Comprehensive technology solutions tailored to your business
             </p>
           </div>
@@ -50,14 +44,14 @@ const ServicesOverview = () => {
             const Icon = serviceIcons[i % serviceIcons.length];
             return (
               <ScrollReveal key={service.title} delay={i * 0.08}>
-                <div className="group relative bg-[hsl(var(--surface))] rounded-2xl p-6 sm:p-8 border border-white/[0.06] hover:border-white/[0.12] transition-all duration-300">
-                  <div className={`w-11 h-11 rounded-lg ${iconColors[i % iconColors.length]} flex items-center justify-center mb-5`}>
-                    <Icon className="w-5 h-5 text-white" />
+                <div className="group bg-card rounded-2xl p-6 sm:p-8 border border-border hover:border-[hsl(var(--electric))]/30 hover:shadow-lg hover:shadow-[hsl(var(--electric))]/5 transition-all duration-300">
+                  <div className="w-11 h-11 rounded-lg bg-[hsl(var(--electric))]/10 flex items-center justify-center mb-5">
+                    <Icon className="w-5 h-5 text-[hsl(var(--electric))]" />
                   </div>
-                  <h3 className="font-heading font-semibold text-lg text-white mb-2">
+                  <h3 className="font-heading font-semibold text-lg text-foreground mb-2">
                     {service.title}
                   </h3>
-                  <p className="text-sm text-white/40 leading-relaxed mb-5">
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-5">
                     {service.description}
                   </p>
                   <div className="flex items-center gap-4">
@@ -71,7 +65,7 @@ const ServicesOverview = () => {
                       href={`https://wa.me/${contact.whatsapp || "917675843214"}?text=${encodeURIComponent(`Hi, I'm interested in your "${service.title}" service.`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-sm font-medium text-[hsl(145,70%,45%)] hover:text-[hsl(145,70%,50%)] transition-colors"
+                      className="inline-flex items-center gap-1.5 text-sm font-medium text-[hsl(145,70%,35%)] hover:text-[hsl(145,70%,30%)] transition-colors"
                     >
                       <MessageCircle className="w-3.5 h-3.5" /> WhatsApp
                     </a>

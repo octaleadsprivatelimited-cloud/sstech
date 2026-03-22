@@ -23,19 +23,15 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-[100svh] flex items-center overflow-hidden">
-      {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${bgImage})` }}
       />
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-[hsl(var(--navy))]/65" />
-      {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background to-transparent" />
+      <div className="absolute inset-0 bg-[hsl(var(--navy))]/60" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[hsl(var(--navy))]/80 to-transparent" />
 
       <div className="container mx-auto px-5 md:px-8 relative z-10 pt-28 pb-20 md:pt-36 md:pb-28">
         <div className="max-w-2xl">
-          {/* Heading */}
           <motion.h1
             initial={{ opacity: 0, y: 24, filter: "blur(4px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -47,18 +43,16 @@ const HeroSection = () => {
             <span className="text-gradient">{data.highlight}</span> World
           </motion.h1>
 
-          {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 16, filter: "blur(4px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.7, delay: 0.15, ease }}
-            className="text-base sm:text-lg text-white/65 leading-relaxed mt-6 max-w-lg"
+            className="text-base sm:text-lg text-white/80 leading-relaxed mt-6 max-w-lg font-medium"
             style={{ textWrap: "pretty" }}
           >
             {data.subtitle}
           </motion.p>
 
-          {/* CTA */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}

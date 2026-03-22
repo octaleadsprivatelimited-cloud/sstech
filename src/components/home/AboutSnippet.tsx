@@ -17,30 +17,26 @@ const AboutSnippet = () => {
   const { data: stats } = useFirestoreList(getStats, fallbackStats);
 
   return (
-    <section className="py-20 md:py-28 bg-[hsl(var(--surface))] relative overflow-hidden">
+    <section className="py-20 md:py-28 bg-secondary">
       <div className="container mx-auto px-5 md:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Text side */}
           <ScrollReveal direction="left">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[hsl(var(--electric))] mb-3">
                 Why Us
               </p>
               <h2
-                className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight mb-5"
+                className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground leading-tight mb-5"
                 style={{ textWrap: "balance" }}
               >
                 Trusted experts with years of experience
               </h2>
-              <p
-                className="text-sm sm:text-base text-white/45 leading-relaxed mb-6"
-                style={{ textWrap: "pretty" }}
-              >
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-6" style={{ textWrap: "pretty" }}>
                 At Sthanu Setu Technologies, our team comprises trusted experts with a proven track record.
                 With years of experience navigating complex technology landscapes, we bring unparalleled
                 insight to every client engagement.
               </p>
-              <p className="text-sm sm:text-base text-white/45 leading-relaxed mb-8" style={{ textWrap: "pretty" }}>
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-8" style={{ textWrap: "pretty" }}>
                 Our industry expertise isn't just a credential — it represents deep knowledge and commitment
                 to the highest professional standards.
               </p>
@@ -53,10 +49,9 @@ const AboutSnippet = () => {
             </div>
           </ScrollReveal>
 
-          {/* Image + Stats side */}
           <ScrollReveal direction="right">
             <div className="space-y-6">
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-white/[0.08]">
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-border shadow-xl">
                 <img
                   src={aboutImg}
                   alt="Sthanu Setu Technologies team"
@@ -64,12 +59,10 @@ const AboutSnippet = () => {
                   loading="lazy"
                 />
               </div>
-
-              {/* Stats row */}
               <div className="grid grid-cols-3 gap-4">
                 {stats.slice(0, 3).map((stat) => (
-                  <div key={stat.label} className="text-center bg-[hsl(var(--surface-raised))] rounded-xl p-4 border border-white/[0.06]">
-                    <AnimatedCounter end={stat.end} suffix={stat.suffix} label={stat.label} variant="hero" />
+                  <div key={stat.label} className="text-center bg-card rounded-xl p-4 border border-border">
+                    <AnimatedCounter end={stat.end} suffix={stat.suffix} label={stat.label} variant="default" />
                   </div>
                 ))}
               </div>

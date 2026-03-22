@@ -6,23 +6,23 @@
 
 @layer base {
   :root {
-    --background: 220 20% 7%;
-    --foreground: 0 0% 95%;
+    --background: 0 0% 100%;
+    --foreground: 220 20% 12%;
 
-    --card: 220 20% 10%;
-    --card-foreground: 0 0% 95%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 12%;
 
-    --popover: 220 20% 10%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 12%;
 
     --primary: 330 85% 55%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 20% 12%;
-    --secondary-foreground: 0 0% 90%;
+    --secondary: 220 15% 96%;
+    --secondary-foreground: 220 20% 12%;
 
-    --muted: 220 15% 15%;
-    --muted-foreground: 220 10% 55%;
+    --muted: 220 15% 95%;
+    --muted-foreground: 220 10% 45%;
 
     --accent: 330 85% 55%;
     --accent-foreground: 0 0% 100%;
@@ -30,32 +30,32 @@
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 15% 16%;
-    --input: 220 15% 16%;
+    --border: 220 15% 90%;
+    --input: 220 15% 90%;
     --ring: 330 85% 55%;
 
     --radius: 0.75rem;
 
-    /* Brand tokens – logo pink→orange */
-    --navy: 220 20% 7%;
-    --navy-light: 220 20% 12%;
+    /* Brand tokens */
+    --navy: 220 25% 12%;
+    --navy-light: 220 20% 18%;
     --electric: 330 85% 55%;
     --electric-light: 340 85% 65%;
     --gold: 35 90% 55%;
     --gold-light: 35 90% 65%;
-    --surface: 220 20% 10%;
-    --surface-raised: 220 20% 13%;
+    --surface: 220 15% 97%;
+    --surface-raised: 0 0% 100%;
 
     --gradient-start: 330 85% 55%;
     --gradient-end: 35 90% 55%;
 
-    --sidebar-background: 220 20% 7%;
+    --sidebar-background: 220 25% 12%;
     --sidebar-foreground: 220 15% 85%;
     --sidebar-primary: 330 85% 55%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 20% 12%;
+    --sidebar-accent: 220 20% 18%;
     --sidebar-accent-foreground: 220 15% 85%;
-    --sidebar-border: 220 20% 16%;
+    --sidebar-border: 220 20% 22%;
     --sidebar-ring: 330 85% 55%;
   }
 }
@@ -130,7 +130,7 @@
   }
 
   .hero-gradient {
-    background: linear-gradient(135deg, hsl(220 20% 7%) 0%, hsl(220 20% 10%) 50%, hsl(330 20% 12%) 100%);
+    background: linear-gradient(135deg, hsl(220 25% 12%) 0%, hsl(220 20% 18%) 100%);
   }
 
   .card-lift {
@@ -143,13 +143,12 @@
   }
 
   .glass-card {
-    backdrop-filter: blur(16px) saturate(180%);
-    background-color: hsla(220, 20%, 12%, 0.7);
-    border: 1px solid hsla(0, 0%, 100%, 0.06);
+    background-color: hsl(var(--surface));
+    border: 1px solid hsl(var(--border));
   }
 
   .glass-header {
     backdrop-filter: blur(16px) saturate(180%);
-    background-color: hsla(220, 20%, 7%, 0.85);
+    background-color: hsla(0, 0%, 100%, 0.92);
   }
 }
