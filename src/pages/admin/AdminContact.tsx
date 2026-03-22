@@ -77,14 +77,14 @@ const AdminContact = () => {
         <div className="space-y-3">
           {submissions.map((s) => (
             <div key={s.id} className="bg-surface-raised rounded-xl p-4 border border-border/50">
-              <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-orange-500/10 flex items-center justify-center text-xs font-bold text-orange-600">{s.name.split(" ").map(n => n[0]).join("")}</div>
-                  <div>
-                    <h3 className="font-semibold text-sm text-navy">{s.name}</h3>
-                    <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                      <span className="flex items-center gap-1"><Mail className="w-3 h-3" />{s.email}</span>
-                      {s.phone && <span className="flex items-center gap-1"><Phone className="w-3 h-3" />{s.phone}</span>}
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
+                <div className="flex items-center gap-2 min-w-0">
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 flex items-center justify-center text-xs font-bold text-orange-600 shrink-0">{s.name.split(" ").map(n => n[0]).join("")}</div>
+                  <div className="min-w-0">
+                    <h3 className="font-semibold text-xs sm:text-sm text-navy truncate">{s.name}</h3>
+                    <div className="flex flex-wrap items-center gap-2 text-[10px] sm:text-xs text-muted-foreground">
+                      <span className="flex items-center gap-0.5 truncate"><Mail className="w-3 h-3 shrink-0" />{s.email}</span>
+                      {s.phone && <span className="flex items-center gap-0.5"><Phone className="w-3 h-3 shrink-0" />{s.phone}</span>}
                     </div>
                   </div>
                 </div>

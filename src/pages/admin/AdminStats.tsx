@@ -77,16 +77,16 @@ const AdminStats = () => {
       ) : (
         <div className="space-y-3">
           {stats.map((s) => (
-            <div key={s.id || s.label} className="bg-surface-raised rounded-xl p-4 border border-border/50 flex items-center justify-between hover:shadow-sm transition-shadow">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-lg bg-electric/10 flex items-center justify-center">
-                  <span className="font-bold text-electric font-heading text-sm">{s.end}{s.suffix}</span>
+            <div key={s.id || s.label} className="bg-surface-raised rounded-xl p-3 border border-border/50 hover:shadow-sm transition-shadow">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-electric/10 flex items-center justify-center shrink-0">
+                  <span className="font-bold text-electric font-heading text-xs">{s.end}{s.suffix}</span>
                 </div>
-                <span className="text-sm text-navy font-medium">{s.label}</span>
-              </div>
-              <div className="flex gap-1.5">
-                <Button variant="outline" size="sm" onClick={() => { setEditing({ ...s }); setIsNew(false); }} className="h-8 px-3"><Pencil className="w-3 h-3 mr-1" /> Edit</Button>
-                {s.id && <Button variant="ghost" size="sm" onClick={() => handleDelete(s.id!)} className="h-8 px-2 text-destructive hover:text-destructive"><Trash2 className="w-3.5 h-3.5" /></Button>}
+                <span className="text-xs sm:text-sm text-navy font-medium flex-1 min-w-0 truncate">{s.label}</span>
+                <div className="flex gap-1 shrink-0">
+                  <Button variant="outline" size="sm" onClick={() => { setEditing({ ...s }); setIsNew(false); }} className="h-7 px-2"><Pencil className="w-3 h-3" /></Button>
+                  {s.id && <Button variant="ghost" size="sm" onClick={() => handleDelete(s.id!)} className="h-7 px-1.5 text-destructive hover:text-destructive"><Trash2 className="w-3 h-3" /></Button>}
+                </div>
               </div>
             </div>
           ))}

@@ -75,24 +75,22 @@ const AdminTestimonials = () => {
       ) : (
         <div className="space-y-3">
           {items.map((t) => (
-            <div key={t.id || t.name} className="bg-surface-raised rounded-xl p-5 border border-border/50 hover:shadow-sm transition-shadow">
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex items-start gap-3 min-w-0 flex-1">
-                  <div className="w-10 h-10 rounded-full bg-electric/10 flex items-center justify-center shrink-0">
-                    <Quote className="w-4 h-4 text-electric" />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="font-semibold text-sm text-navy">{t.name}</span>
-                      <span className="text-xs text-muted-foreground">— {t.company}</span>
-                    </div>
-                    <p className="text-sm text-muted-foreground line-clamp-2">"{t.quote}"</p>
-                    <div className="flex gap-0.5 mt-2">{Array.from({ length: t.rating }).map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-gold text-gold" />)}</div>
-                  </div>
+            <div key={t.id || t.name} className="bg-surface-raised rounded-xl p-3 sm:p-4 border border-border/50 hover:shadow-sm transition-shadow">
+              <div className="flex items-start gap-2.5">
+                <div className="w-8 h-8 rounded-full bg-electric/10 flex items-center justify-center shrink-0">
+                  <Quote className="w-3.5 h-3.5 text-electric" />
                 </div>
-                <div className="flex gap-1.5 shrink-0">
-                  <Button variant="outline" size="sm" onClick={() => { setEditing({ ...t }); setIsNew(false); }} className="h-8 px-3"><Pencil className="w-3 h-3 mr-1" /> Edit</Button>
-                  {t.id && <Button variant="ghost" size="sm" onClick={() => handleDelete(t.id!)} className="h-8 px-2 text-destructive hover:text-destructive"><Trash2 className="w-3.5 h-3.5" /></Button>}
+                <div className="min-w-0 flex-1">
+                  <div className="flex flex-wrap items-center gap-1 mb-1">
+                    <span className="font-semibold text-xs sm:text-sm text-navy">{t.name}</span>
+                    <span className="text-[10px] sm:text-xs text-muted-foreground">— {t.company}</span>
+                  </div>
+                  <p className="text-xs text-muted-foreground line-clamp-2">"{t.quote}"</p>
+                  <div className="flex gap-0.5 mt-1.5">{Array.from({ length: t.rating }).map((_, i) => <Star key={i} className="w-3 h-3 fill-gold text-gold" />)}</div>
+                </div>
+                <div className="flex gap-1 shrink-0">
+                  <Button variant="outline" size="sm" onClick={() => { setEditing({ ...t }); setIsNew(false); }} className="h-7 px-2"><Pencil className="w-3 h-3" /></Button>
+                  {t.id && <Button variant="ghost" size="sm" onClick={() => handleDelete(t.id!)} className="h-7 px-1.5 text-destructive hover:text-destructive"><Trash2 className="w-3 h-3" /></Button>}
                 </div>
               </div>
             </div>
