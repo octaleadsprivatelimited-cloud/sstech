@@ -45,7 +45,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-4 sm:mt-6 text-sm sm:text-lg md:text-xl text-primary-foreground/70 leading-relaxed max-w-xl"
+            className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-primary-foreground/70 leading-relaxed max-w-xl"
             style={{ textWrap: "pretty" }}
           >
             We help businesses grow through secure, efficient, and future-ready technology. From consulting to custom software — we deliver results.
