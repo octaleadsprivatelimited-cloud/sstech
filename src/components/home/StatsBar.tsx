@@ -9,7 +9,7 @@ const stats = [
 
 const StatsBar = () => {
   return (
-    <section className="relative -mt-16 z-20 px-4 md:px-8">
+    <section className="relative -mt-8 sm:-mt-16 z-20 px-4 md:px-8">
       <div className="container mx-auto">
         <div className="bg-electric rounded-2xl p-8 md:p-10 grid grid-cols-2 md:grid-cols-4 gap-8 shadow-xl shadow-electric/10">
           {stats.map((stat) => (
