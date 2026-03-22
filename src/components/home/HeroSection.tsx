@@ -34,7 +34,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 24, filter: "blur(4px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground leading-[1.08] tracking-tight"
+            className="font-heading text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-primary-foreground leading-[1.08] tracking-tight"
             style={{ textWrap: "balance" }}
           >
             Stable Innovation for a{" "}
