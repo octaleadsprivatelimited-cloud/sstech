@@ -37,12 +37,12 @@
     --radius: 0.75rem;
 
     /* Brand tokens */
-    --navy: 220 60% 10%;
-    --navy-light: 220 40% 18%;
-    --electric: 260 80% 55%;
-    --electric-light: 280 85% 65%;
-    --gold: 37 90% 55%;
-    --gold-light: 37 90% 65%;
+    --navy: 220 10% 20%;
+    --navy-light: 220 10% 28%;
+    --electric: 330 85% 55%;
+    --electric-light: 340 85% 65%;
+    --gold: 35 90% 55%;
+    --gold-light: 35 90% 65%;
     --surface: 220 20% 97%;
     --surface-raised: 0 0% 100%;
 
