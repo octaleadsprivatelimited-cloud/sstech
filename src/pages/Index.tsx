@@ -1,5 +1,4 @@
 import HeroSection from "@/components/home/HeroSection";
-import StatsBar from "@/components/home/StatsBar";
 import ServicesOverview from "@/components/home/ServicesOverview";
 import AboutSnippet from "@/components/home/AboutSnippet";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
@@ -10,7 +9,6 @@ const Index = () => {
   return (
     <>
       <HeroSection />
-      <StatsBar />
       <ServicesOverview />
       <AboutSnippet />
       <WhyChooseUs />

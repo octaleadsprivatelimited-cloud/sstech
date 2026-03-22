@@ -1,14 +1,8 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight, MessageCircle, Code2, Monitor, Users, Wrench } from "lucide-react";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import { useFirestoreList, useFirestoreData } from "@/hooks/useFirestoreData";
 import { getServices, getContactInfo, ServiceItem, ContactInfo } from "@/lib/firestore";
-import serviceConsulting from "@/assets/service-consulting.jpg";
-import serviceDevelopment from "@/assets/service-development.jpg";
-import servicePlacements from "@/assets/service-placements.jpg";
-import serviceSupport from "@/assets/service-support.jpg";
-
-const fallbackImages = [serviceConsulting, serviceDevelopment, servicePlacements, serviceSupport];
 
 const fallbackServices: ServiceItem[] = [
   { title: "IT Consulting", shortDesc: "Strategic tech guidance.", description: "Strategic guidance for better technology decisions.", benefits: [], image: "", order: 0 },
@@ -19,77 +13,79 @@ const fallbackServices: ServiceItem[] = [
 
 const defaultContact: ContactInfo = { email: "", phone: "", address: "", whatsapp: "917675843214", linkedin: "", twitter: "", github: "" };
 
+const serviceIcons = [Monitor, Code2, Users, Wrench];
+const iconColors = [
+  "from-[hsl(330,85%,55%)] to-[hsl(280,80%,55%)]",
+  "from-[hsl(200,90%,50%)] to-[hsl(220,85%,55%)]",
+  "from-[hsl(35,90%,55%)] to-[hsl(15,85%,55%)]",
+  "from-[hsl(150,70%,45%)] to-[hsl(170,80%,40%)]",
+];
+
 const ServicesOverview = () => {
   const { data: services } = useFirestoreList(getServices, fallbackServices);
   const { data: contact } = useFirestoreData(getContactInfo, defaultContact);
 
   return (
-    <section className="py-20 md:py-28 bg-[hsl(220,60%,4%)] relative overflow-hidden">
-      {/* Ambient glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-electric/[0.04] rounded-full blur-[120px]" />
-
+    <section className="py-20 md:py-28 bg-background relative overflow-hidden">
       <div className="container mx-auto px-5 md:px-8 relative z-10">
         <ScrollReveal>
           <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-electric mb-4">
-              What We Do
-            </p>
+            <div className="inline-flex items-center gap-2 bg-[hsl(var(--electric))]/10 rounded-full px-4 py-1.5 mb-4">
+              <span className="text-xs font-semibold uppercase tracking-[0.15em] text-[hsl(var(--electric))]">
+                Our Services
+              </span>
+            </div>
             <h2
-              className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-tight"
+              className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-gradient leading-tight"
               style={{ textWrap: "balance" }}
             >
-              Delivering Excellence Across the Enterprise.
+              Delivering Excellence Across the Enterprise
             </h2>
+            <p className="text-sm sm:text-base text-muted-foreground mt-4 max-w-lg mx-auto" style={{ textWrap: "pretty" }}>
+              Comprehensive technology solutions tailored to your business needs
+            </p>
           </div>
         </ScrollReveal>
 
-        {/* Desktop grid */}
-        <div className="hidden sm:grid sm:grid-cols-2 gap-5 lg:gap-6">
-          {services.map((service, i) => (
-            <ScrollReveal key={service.title} delay={i * 0.08}>
-              <ServiceCard service={service} index={i} whatsapp={contact.whatsapp} />
-            </ScrollReveal>
-          ))}
-        </div>
-
-        {/* Mobile stack */}
-        <div className="sm:hidden flex flex-col gap-4">
-          {services.map((service, i) => (
-            <ScrollReveal key={service.title} delay={i * 0.06}>
-              <ServiceCard service={service} index={i} whatsapp={contact.whatsapp} />
-            </ScrollReveal>
-          ))}
+        <div className="grid sm:grid-cols-2 gap-5 lg:gap-6">
+          {services.map((service, i) => {
+            const Icon = serviceIcons[i % serviceIcons.length];
+            return (
+              <ScrollReveal key={service.title} delay={i * 0.08}>
+                <div className="bg-card rounded-2xl border border-border p-6 sm:p-8 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1 transition-all duration-300 group">
+                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${iconColors[i % iconColors.length]} flex items-center justify-center mb-5`}>
+                    <Icon className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="font-heading font-semibold text-lg text-foreground mb-3 group-hover:text-[hsl(var(--electric))] transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+                    {service.description}
+                  </p>
+                  <div className="flex items-center gap-4">
+                    <Link
+                      to="/services"
+                      className="inline-flex items-center gap-1.5 text-sm font-medium text-[hsl(var(--electric))] hover:gap-2.5 transition-all"
+                    >
+                      Learn More <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                    <a
+                      href={`https://wa.me/${contact.whatsapp || "917675843214"}?text=${encodeURIComponent(`Hi, I'm interested in your "${service.title}" service.`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-sm font-medium text-[hsl(145,70%,40%)] hover:text-[hsl(145,70%,35%)] transition-colors"
+                    >
+                      <MessageCircle className="w-3.5 h-3.5" /> WhatsApp
+                    </a>
+                  </div>
+                </div>
+              </ScrollReveal>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 };
-
-const ServiceCard = ({ service, index, whatsapp }: { service: ServiceItem; index: number; whatsapp: string }) => (
-  <div className="bg-white/[0.03] backdrop-blur-sm rounded-xl border border-white/[0.06] p-6 sm:p-8 hover:border-electric/30 hover:bg-white/[0.05] transition-all duration-400 group">
-    <h3 className="font-heading font-semibold text-lg sm:text-xl text-white mb-3 group-hover:text-electric transition-colors">
-      {service.title}
-    </h3>
-    <p className="text-sm text-white/45 leading-relaxed mb-5">
-      {service.description}
-    </p>
-    <div className="flex items-center gap-4">
-      <Link
-        to="/services"
-        className="inline-flex items-center gap-1.5 text-sm font-medium text-electric hover:gap-2.5 transition-all"
-      >
-        Explore <ArrowRight className="w-3.5 h-3.5" />
-      </Link>
-      <a
-        href={`https://wa.me/${whatsapp || "917675843214"}?text=${encodeURIComponent(`Hi, I'm interested in your "${service.title}" service.`)}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-1.5 text-sm font-medium text-[#25D366] hover:text-[#25D366]/80 transition-colors"
-      >
-        <MessageCircle className="w-3.5 h-3.5" /> WhatsApp
-      </a>
-    </div>
-  </div>
-);
 
 export default ServicesOverview;

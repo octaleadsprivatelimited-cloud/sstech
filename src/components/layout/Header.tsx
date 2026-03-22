@@ -30,14 +30,14 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[hsl(220,60%,4%)]/90 backdrop-blur-xl border-b border-white/[0.06] shadow-lg shadow-black/10"
+          ? "bg-white/95 backdrop-blur-xl border-b border-border shadow-sm"
           : "bg-transparent"
       }`}
     >
       <div className="container mx-auto flex items-center justify-between h-16 md:h-20 px-4 md:px-8">
         <Link to="/" className="flex items-center gap-2.5 group">
-          <img src={logo} alt="Sthanu Setu Technologies" className="w-9 h-9 rounded-full object-cover ring-2 ring-white/10" />
-          <span className="font-heading font-semibold text-base md:text-lg text-white hidden sm:block">
+          <img src={logo} alt="Sthanu Setu Technologies" className="w-9 h-9 rounded-full object-cover ring-2 ring-black/5" />
+          <span className={`font-heading font-semibold text-base md:text-lg hidden sm:block transition-colors ${scrolled ? "text-foreground" : "text-white"}`}>
             Sthanu Setu
           </span>
         </Link>
@@ -49,8 +49,8 @@ const Header = () => {
               to={link.path}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
                 location.pathname === link.path
-                  ? "text-electric"
-                  : "text-white/60 hover:text-white"
+                  ? scrolled ? "text-[hsl(var(--electric))]" : "text-white"
+                  : scrolled ? "text-foreground/60 hover:text-foreground" : "text-white/70 hover:text-white"
               }`}
             >
               {link.label}
@@ -60,13 +60,13 @@ const Header = () => {
 
         <div className="flex items-center gap-3">
           <Link to="/contact" className="hidden md:block">
-            <Button className="bg-white/[0.08] border border-white/[0.1] hover:bg-white/[0.12] text-white font-medium px-5 h-9 text-sm rounded-lg active:scale-[0.97] transition-all">
+            <Button className="bg-gradient-brand text-white font-medium px-5 h-9 text-sm rounded-lg active:scale-[0.97] transition-all shadow-md hover:shadow-lg hover:opacity-90">
               Contact Us
             </Button>
           </Link>
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 rounded-lg text-white/70 hover:text-white hover:bg-white/[0.06] transition-colors"
+            className={`md:hidden p-2 rounded-lg transition-colors ${scrolled ? "text-foreground/70 hover:text-foreground hover:bg-muted" : "text-white/70 hover:text-white hover:bg-white/10"}`}
             aria-label="Toggle menu"
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -80,7 +80,7 @@ const Header = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-[hsl(220,60%,4%)]/95 backdrop-blur-xl border-b border-white/[0.06] overflow-hidden"
+            className="md:hidden bg-white/98 backdrop-blur-xl border-b border-border overflow-hidden"
           >
             <nav className="flex flex-col p-4 gap-1">
               {navLinks.map((link) => (
@@ -89,15 +89,15 @@ const Header = () => {
                   to={link.path}
                   className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
                     location.pathname === link.path
-                      ? "text-electric bg-electric/10"
-                      : "text-white/60 hover:text-white hover:bg-white/[0.04]"
+                      ? "text-[hsl(var(--electric))] bg-[hsl(var(--electric))]/10"
+                      : "text-foreground/60 hover:text-foreground hover:bg-muted"
                   }`}
                 >
                   {link.label}
                 </Link>
               ))}
               <Link to="/contact" className="mt-2">
-                <Button className="w-full bg-electric hover:bg-electric/90 text-white font-medium rounded-lg">
+                <Button className="w-full bg-gradient-brand text-white font-medium rounded-lg">
                   Contact Us
                 </Button>
               </Link>
