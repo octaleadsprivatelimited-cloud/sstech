@@ -51,12 +51,12 @@ const AdminCareers = () => {
         </div>
       </div>
 
-      <div className="flex gap-2">
+      <div className="flex gap-2 flex-wrap">
         <Button variant={tab === "jobs" ? "default" : "outline"} size="sm" onClick={() => setTab("jobs")} className={tab === "jobs" ? "bg-electric text-white" : ""}>
-          <Briefcase className="w-4 h-4 mr-1.5" /> Jobs ({jobs.length})
+          <Briefcase className="w-3.5 h-3.5 mr-1" /> Jobs ({jobs.length})
         </Button>
         <Button variant={tab === "applications" ? "default" : "outline"} size="sm" onClick={() => setTab("applications")} className={tab === "applications" ? "bg-electric text-white" : ""}>
-          <Users className="w-4 h-4 mr-1.5" /> Applications ({applications.length})
+          <Users className="w-3.5 h-3.5 mr-1" /> Apps ({applications.length})
         </Button>
       </div>
 
