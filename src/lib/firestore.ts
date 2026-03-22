@@ -147,6 +147,34 @@ const deleteItem = async (collName: string, id: string) => {
   await deleteDoc(doc(db, collName, id));
 };
 
+// ─── Auto-Seed: Save defaults to Firestore if collection is empty ──
+const getOrSeedCollection = async <T extends Record<string, any>>(
+  collName: string,
+  orderField: string | undefined,
+  defaults: T[]
+): Promise<(T & { id: string })[]> => {
+  const existing = await getCollection<T & { id: string }>(collName, orderField);
+  if (existing.length > 0) return existing;
+  // Seed defaults
+  const seeded: (T & { id: string })[] = [];
+  for (const item of defaults) {
+    const id = await addItem(collName, item);
+    seeded.push({ ...item, id } as T & { id: string });
+  }
+  return seeded;
+};
+
+const getOrSeedSingleDoc = async <T extends Record<string, any>>(
+  collName: string,
+  docId: string,
+  defaultData: T
+): Promise<T> => {
+  const existing = await getSingleDoc<T>(collName, docId);
+  if (existing) return existing;
+  await setSingleDoc(collName, docId, defaultData);
+  return defaultData;
+};
+
 // ─── Hero ────────────────────────────────────────
 export const getHero = () => getSingleDoc<HeroData>("siteContent", "hero");
 export const saveHero = (data: HeroData) => setSingleDoc("siteContent", "hero", data);
