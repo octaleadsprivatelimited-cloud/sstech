@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Briefcase, Code2, Users, Wrench, ArrowRight } from "lucide-react";
+import { Briefcase, Code2, Users, Wrench, ArrowRight, MessageCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import serviceConsulting from "@/assets/service-consulting.jpg";
 import serviceDevelopment from "@/assets/service-development.jpg";
