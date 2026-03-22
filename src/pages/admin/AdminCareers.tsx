@@ -44,19 +44,19 @@ const AdminCareers = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
         <div>
-          <h2 className="font-heading text-xl font-bold text-navy">Careers</h2>
-          <p className="text-sm text-muted-foreground mt-0.5">{jobs.length} job{jobs.length !== 1 ? "s" : ""} · {applications.length} application{applications.length !== 1 ? "s" : ""}</p>
+          <h2 className="font-heading text-lg sm:text-xl font-bold text-navy">Careers</h2>
+          <p className="text-xs text-muted-foreground mt-0.5">{jobs.length} job{jobs.length !== 1 ? "s" : ""} · {applications.length} app{applications.length !== 1 ? "s" : ""}</p>
         </div>
       </div>
 
-      <div className="flex gap-2">
+      <div className="flex gap-2 flex-wrap">
         <Button variant={tab === "jobs" ? "default" : "outline"} size="sm" onClick={() => setTab("jobs")} className={tab === "jobs" ? "bg-electric text-white" : ""}>
-          <Briefcase className="w-4 h-4 mr-1.5" /> Jobs ({jobs.length})
+          <Briefcase className="w-3.5 h-3.5 mr-1" /> Jobs ({jobs.length})
         </Button>
         <Button variant={tab === "applications" ? "default" : "outline"} size="sm" onClick={() => setTab("applications")} className={tab === "applications" ? "bg-electric text-white" : ""}>
-          <Users className="w-4 h-4 mr-1.5" /> Applications ({applications.length})
+          <Users className="w-3.5 h-3.5 mr-1" /> Apps ({applications.length})
         </Button>
       </div>
 
@@ -83,27 +83,27 @@ const AdminCareers = () => {
           ) : (
             <div className="space-y-3">
               {jobs.map((j) => (
-                <div key={j.id || j.title} className="bg-surface-raised rounded-xl p-4 border border-border/50 flex items-center justify-between hover:shadow-sm transition-shadow">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-electric/10 flex items-center justify-center shrink-0"><Briefcase className="w-4 h-4 text-electric" /></div>
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <h3 className="font-semibold text-sm text-navy">{j.title}</h3>
+                <div key={j.id || j.title} className="bg-surface-raised rounded-xl p-3 border border-border/50 hover:shadow-sm transition-shadow">
+                  <div className="flex items-start gap-2.5">
+                    <div className="w-9 h-9 rounded-lg bg-electric/10 flex items-center justify-center shrink-0"><Briefcase className="w-4 h-4 text-electric" /></div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex flex-wrap items-center gap-1.5">
+                        <h3 className="font-semibold text-xs sm:text-sm text-navy">{j.title}</h3>
                         {j.active ? (
-                          <span className="inline-flex items-center gap-1 text-[10px] font-medium text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-full"><CircleCheck className="w-2.5 h-2.5" /> Active</span>
+                          <span className="inline-flex items-center gap-0.5 text-[10px] font-medium text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-full"><CircleCheck className="w-2.5 h-2.5" /> Active</span>
                         ) : (
-                          <span className="inline-flex items-center gap-1 text-[10px] font-medium text-destructive bg-destructive/10 px-1.5 py-0.5 rounded-full"><CircleX className="w-2.5 h-2.5" /> Inactive</span>
+                          <span className="inline-flex items-center gap-0.5 text-[10px] font-medium text-destructive bg-destructive/10 px-1.5 py-0.5 rounded-full"><CircleX className="w-2.5 h-2.5" /> Off</span>
                         )}
                       </div>
-                      <div className="flex gap-3 mt-0.5 text-xs text-muted-foreground">
-                        <span className="flex items-center gap-1"><Clock className="w-3 h-3" />{j.type}</span>
-                        <span className="flex items-center gap-1"><MapPin className="w-3 h-3" />{j.location}</span>
+                      <div className="flex flex-wrap gap-2 mt-0.5 text-[10px] sm:text-xs text-muted-foreground">
+                        <span className="flex items-center gap-0.5"><Clock className="w-3 h-3" />{j.type}</span>
+                        <span className="flex items-center gap-0.5"><MapPin className="w-3 h-3" />{j.location}</span>
                       </div>
                     </div>
-                  </div>
-                  <div className="flex gap-1.5">
-                    <Button variant="outline" size="sm" onClick={() => { setEditing({ ...j }); setIsNew(false); }} className="h-8 px-3"><Pencil className="w-3 h-3 mr-1" /> Edit</Button>
-                    {j.id && <Button variant="ghost" size="sm" onClick={() => handleDelete(j.id!)} className="h-8 px-2 text-destructive hover:text-destructive"><Trash2 className="w-3.5 h-3.5" /></Button>}
+                    <div className="flex gap-1 shrink-0">
+                      <Button variant="outline" size="sm" onClick={() => { setEditing({ ...j }); setIsNew(false); }} className="h-7 px-2"><Pencil className="w-3 h-3" /></Button>
+                      {j.id && <Button variant="ghost" size="sm" onClick={() => handleDelete(j.id!)} className="h-7 px-1.5 text-destructive hover:text-destructive"><Trash2 className="w-3 h-3" /></Button>}
+                    </div>
                   </div>
                 </div>
               ))}

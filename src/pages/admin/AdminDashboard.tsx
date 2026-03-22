@@ -36,12 +36,12 @@ const AdminDashboard = () => {
 
   return (
     <div className="space-y-8">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
         <div>
-          <h2 className="font-heading text-2xl font-bold text-navy">Dashboard</h2>
-          <p className="text-sm text-muted-foreground mt-1">Manage your website content</p>
+          <h2 className="font-heading text-xl sm:text-2xl font-bold text-navy">Dashboard</h2>
+          <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">Manage your website content</p>
         </div>
-        <Link to="/" target="_blank" className="inline-flex items-center gap-2 text-sm text-electric hover:underline font-medium">
+        <Link to="/" target="_blank" className="inline-flex items-center gap-2 text-xs text-electric hover:underline font-medium">
           View Live Site <ExternalLink className="w-3.5 h-3.5" />
         </Link>
       </div>
@@ -62,17 +62,17 @@ const AdminDashboard = () => {
       </div>
 
       {/* Section Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {sections.map((s) => (
-          <Link key={s.path} to={s.path} className="bg-surface-raised rounded-xl p-5 border border-border/50 hover:shadow-md hover:border-electric/20 transition-all group">
-            <div className="flex items-start justify-between mb-4">
-              <div className={`w-10 h-10 rounded-lg ${s.color} flex items-center justify-center`}>
-                <s.icon className="w-5 h-5" />
+          <Link key={s.path} to={s.path} className="bg-surface-raised rounded-xl p-3 sm:p-5 border border-border/50 hover:shadow-md hover:border-electric/20 transition-all group">
+            <div className="flex items-start justify-between mb-2 sm:mb-4">
+              <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg ${s.color} flex items-center justify-center`}>
+                <s.icon className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
-              <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-electric group-hover:translate-x-0.5 transition-all" />
+              <ArrowRight className="w-3.5 h-3.5 text-muted-foreground group-hover:text-electric group-hover:translate-x-0.5 transition-all" />
             </div>
-            <h3 className="font-heading font-semibold text-navy text-sm">{s.label}</h3>
-            <p className="text-xs text-muted-foreground mt-1">{s.desc}</p>
+            <h3 className="font-heading font-semibold text-navy text-xs sm:text-sm">{s.label}</h3>
+            <p className="text-[10px] sm:text-xs text-muted-foreground mt-0.5 line-clamp-2">{s.desc}</p>
           </Link>
         ))}
       </div>

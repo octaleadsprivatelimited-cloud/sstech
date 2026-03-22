@@ -42,16 +42,16 @@ const AdminStats = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
         <div>
-          <h2 className="font-heading text-xl font-bold text-navy">Statistics</h2>
-          <p className="text-sm text-muted-foreground mt-0.5">Counter bar shown on homepage</p>
+          <h2 className="font-heading text-lg sm:text-xl font-bold text-navy">Statistics</h2>
+          <p className="text-xs text-muted-foreground mt-0.5">Counter bar on homepage</p>
         </div>
-        {!editing && <Button onClick={startNew} size="sm" className="bg-electric hover:bg-electric/90 text-white"><Plus className="w-4 h-4 mr-2" /> Add Stat</Button>}
+        {!editing && <Button onClick={startNew} size="sm" className="bg-electric hover:bg-electric/90 text-white self-start"><Plus className="w-4 h-4 mr-1" /> Add</Button>}
       </div>
 
       {/* Preview */}
-      <div className="bg-electric rounded-xl p-4 grid grid-cols-4 gap-3">
+      <div className="bg-electric rounded-xl p-3 sm:p-4 grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
         {stats.map((s) => (
           <div key={s.id || s.label} className="text-center">
             <p className="text-lg sm:text-2xl font-bold text-white font-heading">{s.end}{s.suffix}</p>
@@ -63,7 +63,7 @@ const AdminStats = () => {
       {editing ? (
         <div className="bg-surface-raised rounded-xl border border-border/50 p-5 space-y-4">
           <h3 className="font-heading font-semibold text-sm text-navy">{isNew ? "New Stat" : "Edit Stat"}</h3>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div className="space-y-1.5"><Label>Value</Label><Input type="number" value={editing.end} onChange={(e) => setEditing({ ...editing, end: parseInt(e.target.value) || 0 })} /></div>
             <div className="space-y-1.5"><Label>Suffix</Label><Input value={editing.suffix} onChange={(e) => setEditing({ ...editing, suffix: e.target.value })} placeholder="+ or %" /></div>
             <div className="space-y-1.5"><Label>Order</Label><Input type="number" value={editing.order} onChange={(e) => setEditing({ ...editing, order: parseInt(e.target.value) || 0 })} /></div>
@@ -77,16 +77,16 @@ const AdminStats = () => {
       ) : (
         <div className="space-y-3">
           {stats.map((s) => (
-            <div key={s.id || s.label} className="bg-surface-raised rounded-xl p-4 border border-border/50 flex items-center justify-between hover:shadow-sm transition-shadow">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-lg bg-electric/10 flex items-center justify-center">
-                  <span className="font-bold text-electric font-heading text-sm">{s.end}{s.suffix}</span>
+            <div key={s.id || s.label} className="bg-surface-raised rounded-xl p-3 border border-border/50 hover:shadow-sm transition-shadow">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-electric/10 flex items-center justify-center shrink-0">
+                  <span className="font-bold text-electric font-heading text-xs">{s.end}{s.suffix}</span>
                 </div>
-                <span className="text-sm text-navy font-medium">{s.label}</span>
-              </div>
-              <div className="flex gap-1.5">
-                <Button variant="outline" size="sm" onClick={() => { setEditing({ ...s }); setIsNew(false); }} className="h-8 px-3"><Pencil className="w-3 h-3 mr-1" /> Edit</Button>
-                {s.id && <Button variant="ghost" size="sm" onClick={() => handleDelete(s.id!)} className="h-8 px-2 text-destructive hover:text-destructive"><Trash2 className="w-3.5 h-3.5" /></Button>}
+                <span className="text-xs sm:text-sm text-navy font-medium flex-1 min-w-0 truncate">{s.label}</span>
+                <div className="flex gap-1 shrink-0">
+                  <Button variant="outline" size="sm" onClick={() => { setEditing({ ...s }); setIsNew(false); }} className="h-7 px-2"><Pencil className="w-3 h-3" /></Button>
+                  {s.id && <Button variant="ghost" size="sm" onClick={() => handleDelete(s.id!)} className="h-7 px-1.5 text-destructive hover:text-destructive"><Trash2 className="w-3 h-3" /></Button>}
+                </div>
               </div>
             </div>
           ))}

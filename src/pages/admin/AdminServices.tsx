@@ -66,12 +66,12 @@ const AdminServices = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
         <div>
-          <h2 className="font-heading text-xl font-bold text-navy">Services</h2>
-          <p className="text-sm text-muted-foreground mt-0.5">{services.length} service{services.length !== 1 ? "s" : ""}</p>
+          <h2 className="font-heading text-lg sm:text-xl font-bold text-navy">Services</h2>
+          <p className="text-xs text-muted-foreground mt-0.5">{services.length} service{services.length !== 1 ? "s" : ""}</p>
         </div>
-        {!editing && <Button onClick={startNew} size="sm" className="bg-electric hover:bg-electric/90 text-white"><Plus className="w-4 h-4 mr-2" /> Add Service</Button>}
+        {!editing && <Button onClick={startNew} size="sm" className="bg-electric hover:bg-electric/90 text-white self-start"><Plus className="w-4 h-4 mr-1" /> Add</Button>}
       </div>
 
       {editing ? (
@@ -117,21 +117,22 @@ const AdminServices = () => {
       ) : (
         <div className="space-y-3">
           {services.map((s) => (
-            <div key={s.id || s.title} className="bg-surface-raised rounded-xl p-4 border border-border/50 flex items-center gap-4 hover:shadow-sm transition-shadow">
-              <GripVertical className="w-4 h-4 text-muted-foreground/30 shrink-0 hidden sm:block" />
-              {s.image ? (
-                <img src={s.image} alt={s.title} className="w-14 h-10 object-cover rounded-lg border shrink-0" />
-              ) : (
-                <div className="w-14 h-10 rounded-lg border border-dashed border-border flex items-center justify-center shrink-0"><ImageIcon className="w-4 h-4 text-muted-foreground/30" /></div>
-              )}
-              <div className="flex-1 min-w-0">
-                <h3 className="font-semibold text-sm text-navy truncate">{s.title}</h3>
-                <p className="text-xs text-muted-foreground truncate">{s.shortDesc || s.description}</p>
-                {s.benefits.length > 0 && <p className="text-[10px] text-muted-foreground/60 mt-0.5">{s.benefits.length} benefit{s.benefits.length !== 1 ? "s" : ""}</p>}
-              </div>
-              <div className="flex gap-1.5 shrink-0">
-                <Button variant="outline" size="sm" onClick={() => startEdit(s)} className="h-8 px-3"><Pencil className="w-3 h-3 mr-1" /> Edit</Button>
-                {s.id && <Button variant="ghost" size="sm" onClick={() => handleDelete(s.id!)} className="h-8 px-2 text-destructive hover:text-destructive"><Trash2 className="w-3.5 h-3.5" /></Button>}
+            <div key={s.id || s.title} className="bg-surface-raised rounded-xl p-3 sm:p-4 border border-border/50 hover:shadow-sm transition-shadow">
+              <div className="flex items-center gap-3">
+                <GripVertical className="w-4 h-4 text-muted-foreground/30 shrink-0 hidden sm:block" />
+                {s.image ? (
+                  <img src={s.image} alt={s.title} className="w-10 h-10 sm:w-14 sm:h-10 object-cover rounded-lg border shrink-0" />
+                ) : (
+                  <div className="w-10 h-10 sm:w-14 sm:h-10 rounded-lg border border-dashed border-border flex items-center justify-center shrink-0"><ImageIcon className="w-4 h-4 text-muted-foreground/30" /></div>
+                )}
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-semibold text-xs sm:text-sm text-navy truncate">{s.title}</h3>
+                  <p className="text-[10px] sm:text-xs text-muted-foreground truncate">{s.shortDesc || s.description}</p>
+                </div>
+                <div className="flex gap-1 shrink-0">
+                  <Button variant="outline" size="sm" onClick={() => startEdit(s)} className="h-7 px-2 text-xs"><Pencil className="w-3 h-3" /></Button>
+                  {s.id && <Button variant="ghost" size="sm" onClick={() => handleDelete(s.id!)} className="h-7 px-1.5 text-destructive hover:text-destructive"><Trash2 className="w-3 h-3" /></Button>}
+                </div>
               </div>
             </div>
           ))}

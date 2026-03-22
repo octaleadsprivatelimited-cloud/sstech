@@ -49,12 +49,12 @@ const AdminTeam = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
         <div>
-          <h2 className="font-heading text-xl font-bold text-navy">Team Members</h2>
-          <p className="text-sm text-muted-foreground mt-0.5">{team.length} member{team.length !== 1 ? "s" : ""}</p>
+          <h2 className="font-heading text-lg sm:text-xl font-bold text-navy">Team Members</h2>
+          <p className="text-xs text-muted-foreground mt-0.5">{team.length} member{team.length !== 1 ? "s" : ""}</p>
         </div>
-        {!editing && <Button onClick={startNew} size="sm" className="bg-electric hover:bg-electric/90 text-white"><Plus className="w-4 h-4 mr-2" /> Add Member</Button>}
+        {!editing && <Button onClick={startNew} size="sm" className="bg-electric hover:bg-electric/90 text-white self-start"><Plus className="w-4 h-4 mr-1" /> Add</Button>}
       </div>
 
       {editing ? (
@@ -83,15 +83,15 @@ const AdminTeam = () => {
       ) : (
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
           {team.map((m) => (
-            <div key={m.id || m.name} className="bg-surface-raised rounded-xl p-5 border border-border/50 text-center hover:shadow-sm transition-shadow group">
-              <div className="w-16 h-16 rounded-full bg-electric/10 flex items-center justify-center mx-auto mb-3 font-heading font-bold text-lg text-electric overflow-hidden">
+            <div key={m.id || m.name} className="bg-surface-raised rounded-xl p-3 sm:p-5 border border-border/50 text-center hover:shadow-sm transition-shadow group">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-electric/10 flex items-center justify-center mx-auto mb-2 font-heading font-bold text-sm sm:text-lg text-electric overflow-hidden">
                 {m.image ? <img src={m.image} className="w-full h-full object-cover" alt={m.name} /> : m.name.split(" ").map(n => n[0]).join("")}
               </div>
-              <h3 className="font-semibold text-sm text-navy">{m.name}</h3>
-              <p className="text-xs text-muted-foreground mt-0.5">{m.role}</p>
-              <div className="flex gap-1.5 justify-center mt-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                <Button variant="outline" size="sm" onClick={() => { setEditing({ ...m }); setIsNew(false); }} className="h-7 px-2 text-xs"><Pencil className="w-3 h-3" /></Button>
-                {m.id && <Button variant="ghost" size="sm" onClick={() => handleDelete(m.id!)} className="h-7 px-2 text-xs text-destructive"><Trash2 className="w-3 h-3" /></Button>}
+              <h3 className="font-semibold text-xs sm:text-sm text-navy truncate">{m.name}</h3>
+              <p className="text-[10px] sm:text-xs text-muted-foreground mt-0.5 truncate">{m.role}</p>
+              <div className="flex gap-1 justify-center mt-2 sm:opacity-0 group-hover:opacity-100 transition-opacity">
+                <Button variant="outline" size="sm" onClick={() => { setEditing({ ...m }); setIsNew(false); }} className="h-6 px-2 text-[10px]"><Pencil className="w-2.5 h-2.5" /></Button>
+                {m.id && <Button variant="ghost" size="sm" onClick={() => handleDelete(m.id!)} className="h-6 px-2 text-[10px] text-destructive"><Trash2 className="w-2.5 h-2.5" /></Button>}
               </div>
             </div>
           ))}
