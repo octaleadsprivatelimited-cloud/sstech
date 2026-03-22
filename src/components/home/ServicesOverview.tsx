@@ -70,14 +70,12 @@ const ServicesOverview = () => {
                   <h3 className="font-heading font-semibold text-xs sm:text-lg text-navy mb-1 sm:mb-3">{service.title}</h3>
                   </div>
                   <h3 className="font-heading font-semibold text-sm sm:text-lg text-navy mb-1 sm:mb-3">{service.title}</h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed flex-1 hidden sm:block">
+                  <p className="text-xs text-muted-foreground leading-snug flex-1 hidden sm:block">
                     {service.description}
                   </p>
-                  <p className="text-[11px] text-muted-foreground leading-snug flex-1 sm:hidden">
+                  <p className="text-[10px] text-muted-foreground leading-snug flex-1 sm:hidden">
                     {service.shortDesc}
                   </p>
-                  <div className="mt-3 sm:mt-5 flex flex-col gap-1.5 sm:gap-2">
-                    <Link
                       to="/services"
                       className="inline-flex items-center gap-1 text-xs sm:text-sm font-medium text-electric hover:gap-2 transition-all"
                     >
