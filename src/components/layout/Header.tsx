@@ -36,7 +36,7 @@ const Header = () => {
           <div className="w-9 h-9 rounded-lg bg-electric flex items-center justify-center font-heading font-bold text-sm text-accent-foreground tracking-tight">
             SST
           </div>
-          <span className="font-heading font-semibold text-base md:text-lg text-navy hidden sm:block">
+          <span className={`font-heading font-semibold text-base md:text-lg hidden sm:block transition-colors ${scrolled ? 'text-navy' : 'text-primary-foreground'}`}>
             Sthanu Setu
           </span>
         </Link>
