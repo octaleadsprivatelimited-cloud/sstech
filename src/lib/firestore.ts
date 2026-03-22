@@ -202,13 +202,13 @@ export const updateService = (id: string, data: Partial<ServiceItem>) => updateI
 export const deleteService = (id: string) => deleteItem("services", id);
 
 // ─── Stats ───────────────────────────────────────
-export const getStats = () => getOrSeedCollection<StatItem>("stats", "order", defaultStats as any);
+export const getStats = () => getOrSeedCollection<StatItem>("stats", "order", defaultStats as any, "label");
 export const addStat = (data: Omit<StatItem, "id">) => addItem("stats", data);
 export const updateStat = (id: string, data: Partial<StatItem>) => updateItem("stats", id, data);
 export const deleteStat = (id: string) => deleteItem("stats", id);
 
 // ─── Testimonials ────────────────────────────────
-export const getTestimonials = () => getOrSeedCollection<TestimonialItem>("testimonials", undefined, defaultTestimonials as any);
+export const getTestimonials = () => getOrSeedCollection<TestimonialItem>("testimonials", undefined, defaultTestimonials as any, "name");
 export const addTestimonial = (data: Omit<TestimonialItem, "id">) => addItem("testimonials", data);
 export const updateTestimonial = (id: string, data: Partial<TestimonialItem>) => updateItem("testimonials", id, data);
 export const deleteTestimonial = (id: string) => deleteItem("testimonials", id);
