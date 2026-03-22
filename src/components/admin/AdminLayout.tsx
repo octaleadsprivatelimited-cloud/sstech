@@ -1,6 +1,6 @@
 import { useAuth } from "@/contexts/AuthContext";
 import { Navigate, Outlet, Link, useLocation } from "react-router-dom";
-import { LayoutDashboard, Image, BarChart3, Briefcase, MessageSquare, Users, Mail, Info, FileText, LogOut, Menu, X, Globe } from "lucide-react";
+import { LayoutDashboard, Image, BarChart3, Briefcase, MessageSquare, Users, Mail, Info, FileText, LogOut, Menu, X, Globe, ChevronLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import logo from "@/assets/logo.jpeg";
@@ -29,31 +29,42 @@ const AdminLayout = () => {
   return (
     <div className="min-h-screen flex bg-surface">
       {/* Sidebar */}
-      <aside className={`fixed inset-y-0 left-0 z-50 w-64 bg-navy text-primary-foreground transform transition-transform duration-300 lg:translate-x-0 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}`}>
-        <div className="flex items-center gap-3 px-5 h-16 border-b border-white/10">
-          <img src={logo} alt="Logo" className="w-8 h-8 rounded-full object-cover" />
-          <span className="font-heading font-semibold text-sm">SST Admin</span>
+      <aside className={`fixed inset-y-0 left-0 z-50 w-60 bg-navy text-primary-foreground transform transition-transform duration-300 lg:translate-x-0 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} flex flex-col`}>
+        <div className="flex items-center gap-3 px-4 h-14 border-b border-white/10 shrink-0">
+          <img src={logo} alt="Logo" className="w-8 h-8 rounded-full object-cover ring-1 ring-white/20" />
+          <div className="min-w-0">
+            <span className="font-heading font-semibold text-xs block">SST Admin</span>
+            <span className="text-[10px] text-primary-foreground/40">Content Manager</span>
+          </div>
+          <button onClick={() => setSidebarOpen(false)} className="lg:hidden ml-auto p-1 hover:bg-white/10 rounded">
+            <X className="w-4 h-4" />
+          </button>
         </div>
-        <nav className="p-3 space-y-1 overflow-y-auto max-h-[calc(100vh-8rem)]">
-          {navItems.map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              onClick={() => setSidebarOpen(false)}
-              className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                location.pathname === item.path
-                  ? "bg-electric text-white"
-                  : "text-primary-foreground/60 hover:text-primary-foreground hover:bg-white/10"
-              }`}
-            >
-              <item.icon className="w-4 h-4 shrink-0" />
-              {item.label}
-            </Link>
-          ))}
+
+        <nav className="flex-1 p-2 space-y-0.5 overflow-y-auto">
+          {navItems.map((item) => {
+            const active = location.pathname === item.path;
+            return (
+              <Link
+                key={item.path}
+                to={item.path}
+                onClick={() => setSidebarOpen(false)}
+                className={`flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium transition-all ${
+                  active
+                    ? "bg-electric text-white shadow-sm shadow-electric/20"
+                    : "text-primary-foreground/50 hover:text-primary-foreground hover:bg-white/5"
+                }`}
+              >
+                <item.icon className="w-4 h-4 shrink-0" />
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
-        <div className="absolute bottom-0 left-0 right-0 p-3 border-t border-white/10">
-          <Button variant="ghost" onClick={logout} className="w-full justify-start text-primary-foreground/60 hover:text-primary-foreground hover:bg-white/10">
-            <LogOut className="w-4 h-4 mr-2" /> Sign Out
+
+        <div className="p-2 border-t border-white/10 shrink-0">
+          <Button variant="ghost" onClick={logout} size="sm" className="w-full justify-start text-primary-foreground/40 hover:text-primary-foreground hover:bg-white/5 text-xs h-9">
+            <LogOut className="w-3.5 h-3.5 mr-2" /> Sign Out
           </Button>
         </div>
       </aside>
@@ -62,14 +73,22 @@ const AdminLayout = () => {
       {sidebarOpen && <div className="fixed inset-0 z-40 bg-black/50 lg:hidden" onClick={() => setSidebarOpen(false)} />}
 
       {/* Main */}
-      <div className="flex-1 lg:ml-64">
-        <header className="sticky top-0 z-30 h-14 bg-surface-raised border-b border-border flex items-center px-4 gap-3">
-          <button onClick={() => setSidebarOpen(true)} className="lg:hidden p-2 hover:bg-secondary rounded-lg">
-            <Menu className="w-5 h-5" />
+      <div className="flex-1 lg:ml-60">
+        <header className="sticky top-0 z-30 h-12 bg-surface-raised/80 backdrop-blur-sm border-b border-border/50 flex items-center px-4 gap-3">
+          <button onClick={() => setSidebarOpen(true)} className="lg:hidden p-1.5 hover:bg-secondary rounded-lg">
+            <Menu className="w-5 h-5 text-navy" />
           </button>
-          <h1 className="font-heading font-semibold text-sm text-navy">Content Management</h1>
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <Link to="/admin" className="hover:text-navy transition-colors">Dashboard</Link>
+            {location.pathname !== "/admin" && (
+              <>
+                <ChevronLeft className="w-3 h-3 rotate-180" />
+                <span className="text-navy font-medium">{navItems.find(n => n.path === location.pathname)?.label || "Page"}</span>
+              </>
+            )}
+          </div>
           <div className="ml-auto">
-            <Link to="/" target="_blank" className="text-xs text-electric hover:underline">View Site →</Link>
+            <Link to="/" target="_blank" className="text-xs text-electric hover:underline font-medium">View Site →</Link>
           </div>
         </header>
         <main className="p-4 md:p-6 max-w-5xl">
