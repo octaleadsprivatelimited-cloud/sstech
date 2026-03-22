@@ -3,6 +3,10 @@ import {
   collection, doc, getDocs, getDoc, addDoc, updateDoc, deleteDoc, setDoc,
   query, orderBy, Timestamp
 } from "firebase/firestore";
+import {
+  defaultHero, defaultServices, defaultStats, defaultTestimonials,
+  defaultJobs, defaultTeam, defaultContact, defaultAbout, defaultBanners
+} from "./firestore-defaults";
 
 // ─── Types ───────────────────────────────────────
 export interface HeroData {
