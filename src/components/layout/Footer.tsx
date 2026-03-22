@@ -40,9 +40,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <div className="w-9 h-9 rounded-lg bg-electric flex items-center justify-center font-heading font-bold text-sm text-accent-foreground tracking-tight">
-                SST
-              </div>
+              <img src={logo} alt="Sthanu Setu Technologies" className="w-9 h-9 rounded-lg object-cover" />
               <span className="font-heading font-semibold text-lg">Sthanu Setu</span>
             </div>
             <p className="text-sm text-primary-foreground/60 leading-relaxed max-w-xs">
