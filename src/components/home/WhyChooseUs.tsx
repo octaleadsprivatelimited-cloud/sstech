@@ -1,5 +1,6 @@
 import { Shield, TrendingUp, Lock } from "lucide-react";
 import ScrollReveal from "@/components/shared/ScrollReveal";
+import whyChooseBg from "@/assets/why-choose-us-bg.jpg";
 
 const reasons = [
   {
