@@ -6,25 +6,25 @@ const reasons = [
     icon: Shield,
     title: "Certified Experts",
     description: "Our team comprises certified professionals with deep expertise across all technology domains.",
-    color: "from-[hsl(330,85%,55%)] to-[hsl(280,80%,55%)]",
+    color: "from-[hsl(330,85%,55%)] to-[hsl(350,80%,45%)]",
   },
   {
     icon: TrendingUp,
     title: "Enterprise-Grade Solutions",
     description: "We deliver scalable, enterprise-ready implementations that grow with your business needs.",
-    color: "from-[hsl(200,90%,50%)] to-[hsl(220,85%,55%)]",
+    color: "from-[hsl(35,90%,55%)] to-[hsl(20,85%,50%)]",
   },
   {
     icon: Lock,
     title: "Client-Centric Approach",
     description: "Every solution is tailored to your unique business requirements with dedicated project teams.",
-    color: "from-[hsl(35,90%,55%)] to-[hsl(15,85%,55%)]",
+    color: "from-[hsl(330,70%,50%)] to-[hsl(35,85%,55%)]",
   },
   {
     icon: Award,
     title: "Rapid Deployment",
     description: "Accelerated implementation methodologies ensure faster time-to-value for your investments.",
-    color: "from-[hsl(150,70%,45%)] to-[hsl(170,80%,40%)]",
+    color: "from-[hsl(15,85%,55%)] to-[hsl(330,80%,50%)]",
   },
 ];
 
