@@ -59,7 +59,7 @@ const Services = () => {
 
       <section className="py-24 bg-surface">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {services.map((service, i) => (
               <ScrollReveal key={service.title} delay={i * 0.08}>
                 <div className="bg-surface-raised rounded-xl overflow-hidden h-full flex flex-col card-lift border border-border/50 group">
@@ -71,7 +71,7 @@ const Services = () => {
                       loading="lazy"
                     />
                   </div>
-                  <div className="p-6 flex flex-col flex-1">
+                  <div className="p-4 sm:p-6 flex flex-col flex-1">
                     <div className="w-10 h-10 rounded-lg bg-electric/10 flex items-center justify-center mb-4 group-hover:bg-electric/20 transition-colors">
                       <service.icon className="w-5 h-5 text-electric" />
                     </div>
