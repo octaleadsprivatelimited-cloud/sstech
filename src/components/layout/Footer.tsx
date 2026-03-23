@@ -29,8 +29,19 @@ const Footer = () => {
   const toggle = (title: string) => setOpenSection((prev) => (prev === title ? null : title));
 
   return (
-    <footer className="bg-[hsl(var(--navy))] text-white">
-      <div className="container mx-auto px-4 md:px-8 py-16">
+    <footer className="bg-[hsl(var(--navy))] text-white relative overflow-hidden">
+      {/* Subtle geometric pattern overlay */}
+      <div className="absolute inset-0 opacity-[0.04]" style={{
+        backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--electric)) 1px, transparent 0)`,
+        backgroundSize: '32px 32px'
+      }} />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-[0.03]" style={{
+        background: `radial-gradient(circle, hsl(var(--electric)), transparent 70%)`
+      }} />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full opacity-[0.03]" style={{
+        background: `radial-gradient(circle, hsl(var(--gold)), transparent 70%)`
+      }} />
+      <div className="container mx-auto px-4 md:px-8 py-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {/* Brand */}
           <div className="space-y-4">
