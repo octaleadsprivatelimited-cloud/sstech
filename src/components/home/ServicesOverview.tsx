@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, CheckCircle2, MessageCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import ScrollReveal from "@/components/shared/ScrollReveal";
-import { useFirestoreList, useFirestoreData } from "@/hooks/useFirestoreData";
-import { getServices, getContactInfo, ServiceItem, ContactInfo } from "@/lib/firestore";
+import { useFirestoreList } from "@/hooks/useFirestoreData";
+import { getServices, ServiceItem } from "@/lib/firestore";
 import serviceConsulting from "@/assets/service-consulting.jpg";
 import serviceDevelopment from "@/assets/service-development.jpg";
 import servicePlacements from "@/assets/service-placements.jpg";
@@ -18,11 +17,10 @@ const fallbackServices: ServiceItem[] = [
   { title: "Support & Maintenance", shortDesc: "Reliable ongoing support.", description: "Reliable ongoing technical support to keep your systems running smoothly.", benefits: ["24/7 monitoring & support", "Performance optimization"], image: "", order: 3 },
 ];
 
-const defaultContact: ContactInfo = { email: "", phone: "", address: "", whatsapp: "917675843214", linkedin: "", twitter: "", github: "" };
+const slugify = (title: string) => title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 
 const ServicesOverview = () => {
   const { data: services } = useFirestoreList(getServices, fallbackServices);
-  const { data: contact } = useFirestoreData(getContactInfo, defaultContact);
 
   return (
     <section className="py-20 md:py-28 bg-background">
@@ -32,10 +30,7 @@ const ServicesOverview = () => {
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[hsl(var(--electric))] mb-3">
               Services
             </p>
-            <h2
-              className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground leading-tight"
-              style={{ textWrap: "balance" }}
-            >
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground leading-tight" style={{ textWrap: "balance" }}>
               To meet your needs
             </h2>
             <p className="text-sm sm:text-base text-muted-foreground mt-3 max-w-lg mx-auto" style={{ textWrap: "pretty" }}>
@@ -47,38 +42,34 @@ const ServicesOverview = () => {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
           {services.map((service, i) => (
             <ScrollReveal key={service.title} delay={i * 0.08}>
-              <div className="bg-card rounded-xl overflow-hidden h-full flex flex-col card-lift border border-border/50 group">
-                <div className="aspect-[16/10] overflow-hidden">
-                  <img
-                    src={service.image || fallbackImages[i] || fallbackImages[0]}
-                    alt={service.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
+              <Link to={`/services/${slugify(service.title)}`} className="group block h-full">
+                <div className="bg-card rounded-xl overflow-hidden h-full flex flex-col card-lift border border-border/50">
+                  <div className="aspect-[16/10] overflow-hidden">
+                    <img
+                      src={service.image || fallbackImages[i] || fallbackImages[0]}
+                      alt={service.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="p-3 sm:p-4 md:p-6 flex flex-col flex-1">
+                    <h3 className="font-heading font-semibold text-sm sm:text-base md:text-lg text-foreground mb-1.5 sm:mb-2 line-clamp-2">{service.title}</h3>
+                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-3 flex-1 line-clamp-3" style={{ textWrap: "pretty" }}>{service.description}</p>
+                    {service.benefits && service.benefits.length > 0 && (
+                      <ul className="space-y-1.5 mb-4 hidden sm:block">
+                        {service.benefits.slice(0, 2).map((b) => (
+                          <li key={b} className="flex items-center gap-1.5 text-xs text-foreground">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-[hsl(var(--electric))] shrink-0" />{b}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium text-[hsl(var(--electric))] group-hover:gap-2.5 transition-all mt-auto">
+                      Learn More <ArrowRight className="w-3.5 h-3.5" />
+                    </span>
+                  </div>
                 </div>
-                <div className="p-3 sm:p-4 md:p-6 flex flex-col flex-1">
-                  <h3 className="font-heading font-semibold text-sm sm:text-base md:text-lg text-foreground mb-1.5 sm:mb-2 line-clamp-2">{service.title}</h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-3 flex-1 line-clamp-3" style={{ textWrap: "pretty" }}>{service.description}</p>
-                  {service.benefits && service.benefits.length > 0 && (
-                    <ul className="space-y-1.5 mb-4 hidden sm:block">
-                      {service.benefits.slice(0, 2).map((b) => (
-                        <li key={b} className="flex items-center gap-1.5 text-xs text-foreground">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[hsl(var(--electric))] shrink-0" />{b}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                  <Button asChild size="sm" className="bg-[#25D366] hover:bg-[#1da851] text-white font-medium active:scale-[0.97] w-full text-xs sm:text-sm">
-                    <a
-                      href={`https://wa.me/${contact.whatsapp || "917675843214"}?text=${encodeURIComponent(`Hi, I'm interested in your "${service.title}" service.`)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <MessageCircle className="w-3.5 h-3.5" /> WhatsApp
-                    </a>
-                  </Button>
-                </div>
-              </div>
+              </Link>
             </ScrollReveal>
           ))}
         </div>
