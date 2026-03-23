@@ -31,14 +31,14 @@ const Footer = () => {
   return (
     <footer className="bg-[hsl(var(--navy))] text-white relative overflow-hidden">
       {/* Subtle geometric pattern overlay */}
-      <div className="absolute inset-0 opacity-[0.04]" style={{
+      <div className="absolute inset-0 opacity-[0.12]" style={{
         backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--electric)) 1px, transparent 0)`,
         backgroundSize: '32px 32px'
       }} />
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-[0.03]" style={{
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-[0.08]" style={{
         background: `radial-gradient(circle, hsl(var(--electric)), transparent 70%)`
       }} />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full opacity-[0.03]" style={{
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full opacity-[0.08]" style={{
         background: `radial-gradient(circle, hsl(var(--gold)), transparent 70%)`
       }} />
       <div className="container mx-auto px-4 md:px-8 py-16 relative z-10">
