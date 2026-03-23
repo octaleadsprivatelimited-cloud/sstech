@@ -134,7 +134,7 @@
   }
 
   .card-lift {
-    @apply transition-all duration-400;
+    @apply transition-all duration-300;
   }
 
   .card-lift:hover {
