@@ -16,10 +16,10 @@ const footerSections = [
   {
     title: "Services",
     links: [
-      { label: "IT Consulting", path: "/services" },
-      { label: "Software Development", path: "/services" },
-      { label: "Job Placements", path: "/services" },
-      { label: "Support & Maintenance", path: "/services" },
+      { label: "IT Consulting", path: "/services/it-consulting-consultancy-services" },
+      { label: "Software Development", path: "/services/software-development" },
+      { label: "Job Placements", path: "/services/job-placements" },
+      { label: "Support & Maintenance", path: "/services/support-maintenance" },
     ],
   },
 ];
