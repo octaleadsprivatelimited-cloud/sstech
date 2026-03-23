@@ -49,9 +49,6 @@ const Services = () => {
                     <img src={service.image || fallbackImages[i] || fallbackImages[0]} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                   </div>
                   <div className="p-4 sm:p-6 flex flex-col flex-1">
-                    <div className="w-10 h-10 rounded-lg bg-electric/10 flex items-center justify-center mb-4 group-hover:bg-electric/20 transition-colors">
-                      <span className="text-electric font-bold text-sm">{i + 1}</span>
-                    </div>
                     <h3 className="font-heading font-semibold text-lg text-navy mb-2">{service.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1" style={{ textWrap: "pretty" }}>{service.description}</p>
                     <ul className="space-y-2 mb-5">

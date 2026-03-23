@@ -68,10 +68,10 @@ const Careers = () => {
       <section className="py-24 bg-surface">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal><div className="text-center mb-16"><p className="text-sm font-semibold uppercase tracking-wider text-electric mb-3">How It Works</p><h2 className="font-heading text-3xl md:text-4xl font-bold text-navy">Three simple steps</h2></div></ScrollReveal>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8">
             {steps.map((step, i) => (
               <ScrollReveal key={step.title} delay={i * 0.1}>
-                <div className="text-center p-8 bg-surface-raised rounded-xl border border-border/50 card-lift">
+                <div className="text-center p-6 sm:p-8 bg-surface-raised rounded-xl border border-border/50 card-lift">
                   <div className="w-14 h-14 rounded-xl bg-electric/10 flex items-center justify-center mx-auto mb-5"><step.icon className="w-7 h-7 text-electric" /></div>
                   <div className="text-xs font-semibold text-electric mb-2">Step {i + 1}</div>
                   <h3 className="font-heading font-semibold text-lg text-navy mb-2">{step.title}</h3>
