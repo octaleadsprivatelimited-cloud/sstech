@@ -11,6 +11,7 @@ const footerSections = [
       { label: "Services", path: "/services" },
       { label: "Careers", path: "/careers" },
       { label: "Contact", path: "/contact" },
+      { label: "Sitemap", path: "/sitemap.xml", external: true },
     ],
   },
   {
