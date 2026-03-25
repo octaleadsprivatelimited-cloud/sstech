@@ -3,6 +3,7 @@ import ScrollReveal from "@/components/shared/ScrollReveal";
 import heroAbout from "@/assets/hero-about.jpg";
 import { useFirestoreData, useFirestoreList } from "@/hooks/useFirestoreData";
 import { getAbout, getTeam, getPageBanner, AboutData, TeamMember, PageBanner } from "@/lib/firestore";
+import useSEO from "@/hooks/useSEO";
 
 const values = [
   { icon: Heart, title: "Integrity", desc: "Transparent and honest partnerships with every client." },
@@ -32,6 +33,13 @@ const About = () => {
   const { data: about } = useFirestoreData(getAbout, defaultAbout);
   const { data: team } = useFirestoreList(getTeam, fallbackTeam);
   const { data: banner } = useFirestoreData(() => getPageBanner("about"), defaultBanner);
+
+  useSEO({
+    title: "About Us — Our Story & Team",
+    description: "Learn about Sthanu Setu Technologies — our mission, values, and the experienced team behind our IT consulting and software development services.",
+    keywords: "about Sthanu Setu, IT company Hyderabad, technology team, company values, IT consulting firm",
+    canonical: "/about",
+  });
 
   const bgImage = banner.bgImage || about.heroBgImage || heroAbout;
 

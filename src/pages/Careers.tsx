@@ -8,6 +8,7 @@ import heroCareers from "@/assets/hero-careers.jpg";
 import { toast } from "sonner";
 import { useFirestoreList, useFirestoreData } from "@/hooks/useFirestoreData";
 import { getJobs, getContactInfo, getPageBanner, submitCareerApplication, JobItem, ContactInfo, PageBanner } from "@/lib/firestore";
+import useSEO from "@/hooks/useSEO";
 
 const steps = [
   { icon: Search, title: "Explore", desc: "Browse open positions that match your skills and interests." },
@@ -30,6 +31,13 @@ const Careers = () => {
   const { data: contact } = useFirestoreData(getContactInfo, defaultContact);
   const { data: banner } = useFirestoreData(() => getPageBanner("careers"), defaultBanner);
   const jobs = allJobs.filter(j => j.active !== false);
+
+  useSEO({
+    title: "Careers — Join Our Team",
+    description: "Explore career opportunities at Sthanu Setu Technologies. Browse open positions in IT consulting, software development, and more.",
+    keywords: "IT jobs Hyderabad, software developer jobs, IT careers, Sthanu Setu careers, tech jobs India, job placements",
+    canonical: "/careers",
+  });
 
   const [formData, setFormData] = useState({ name: "", email: "", role: "", message: "" });
   const [submitting, setSubmitting] = useState(false);

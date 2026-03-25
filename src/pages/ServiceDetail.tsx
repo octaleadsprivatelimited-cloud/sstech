@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import { useFirestoreList, useFirestoreData } from "@/hooks/useFirestoreData";
 import { getServices, getContactInfo, ServiceItem, ContactInfo } from "@/lib/firestore";
+import useSEO from "@/hooks/useSEO";
 import serviceConsulting from "@/assets/service-consulting.jpg";
 import serviceDevelopment from "@/assets/service-development.jpg";
 import servicePlacements from "@/assets/service-placements.jpg";
@@ -29,6 +30,13 @@ const ServiceDetail = () => {
 
   const serviceIndex = services.findIndex((s) => slugify(s.title) === slug);
   const service = services[serviceIndex];
+
+  useSEO({
+    title: service ? `${service.title} — Services` : "Service Details",
+    description: service ? `${service.description?.slice(0, 155)}...` : "Explore our professional IT services at Sthanu Setu Technologies.",
+    keywords: service ? `${service.title}, IT services, Sthanu Setu Technologies, Hyderabad` : "IT services",
+    canonical: `/services/${slug}`,
+  });
 
   if (!service) {
     return (

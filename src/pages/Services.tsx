@@ -4,6 +4,7 @@ import ScrollReveal from "@/components/shared/ScrollReveal";
 import { useFirestoreList, useFirestoreData } from "@/hooks/useFirestoreData";
 import { getServices, getPageBanner, ServiceItem, PageBanner } from "@/lib/firestore";
 import heroServices from "@/assets/hero-services.jpg";
+import useSEO from "@/hooks/useSEO";
 import serviceConsulting from "@/assets/service-consulting.jpg";
 import serviceDevelopment from "@/assets/service-development.jpg";
 import servicePlacements from "@/assets/service-placements.jpg";
@@ -25,6 +26,13 @@ const slugify = (title: string) => title.toLowerCase().replace(/[^a-z0-9]+/g, "-
 const Services = () => {
   const { data: services } = useFirestoreList(getServices, fallbackServices);
   const { data: banner } = useFirestoreData(() => getPageBanner("services"), defaultBanner);
+
+  useSEO({
+    title: "Our Services — IT Consulting, Development & Staffing",
+    description: "Explore Sthanu Setu Technologies' services: IT consulting, custom software development, job placements, and ongoing support & maintenance.",
+    keywords: "IT services, software development services, IT consulting services, job placements, staffing solutions, Hyderabad IT company",
+    canonical: "/services",
+  });
 
   return (
     <>

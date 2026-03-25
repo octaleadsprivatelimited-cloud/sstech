@@ -11,6 +11,7 @@ const footerSections = [
       { label: "Services", path: "/services" },
       { label: "Careers", path: "/careers" },
       { label: "Contact", path: "/contact" },
+      { label: "Sitemap", path: "/sitemap.xml", external: true },
     ],
   },
   {
@@ -66,7 +67,13 @@ const Footer = () => {
               <h4 className="hidden md:block font-heading font-semibold text-xs uppercase tracking-[0.15em] mb-5 text-white/50">{section.title}</h4>
               <ul className="hidden md:block space-y-3">
                 {section.links.map((link) => (
-                  <li key={link.label}><Link to={link.path} className="text-sm text-white/50 hover:text-white transition-colors">{link.label}</Link></li>
+                  <li key={link.label}>
+                    {'external' in link && link.external ? (
+                      <a href={link.path} target="_blank" rel="noopener noreferrer" className="text-sm text-white/50 hover:text-white transition-colors">{link.label}</a>
+                    ) : (
+                      <Link to={link.path} className="text-sm text-white/50 hover:text-white transition-colors">{link.label}</Link>
+                    )}
+                  </li>
                 ))}
               </ul>
               <div className="md:hidden border-b border-white/[0.08]">
@@ -77,7 +84,13 @@ const Footer = () => {
                 <div className={`overflow-hidden transition-all duration-300 ${openSection === section.title ? "max-h-48 pb-3" : "max-h-0"}`}>
                   <ul className="space-y-2">
                     {section.links.map((link) => (
-                      <li key={link.label}><Link to={link.path} className="text-sm text-white/50 hover:text-white transition-colors">{link.label}</Link></li>
+                      <li key={link.label}>
+                        {'external' in link && link.external ? (
+                          <a href={link.path} target="_blank" rel="noopener noreferrer" className="text-sm text-white/50 hover:text-white transition-colors">{link.label}</a>
+                        ) : (
+                          <Link to={link.path} className="text-sm text-white/50 hover:text-white transition-colors">{link.label}</Link>
+                        )}
+                      </li>
                     ))}
                   </ul>
                 </div>

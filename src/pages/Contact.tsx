@@ -8,6 +8,7 @@ import { toast } from "sonner";
 import heroContact from "@/assets/hero-contact.jpg";
 import { useFirestoreData } from "@/hooks/useFirestoreData";
 import { getContactInfo, getPageBanner, submitContactForm, ContactInfo, PageBanner } from "@/lib/firestore";
+import useSEO from "@/hooks/useSEO";
 
 const defaultContact: ContactInfo = { email: "info@sthanusetu.com", phone: "+91 76758 43214", address: "Hyderabad, Telangana, India", whatsapp: "917675843214", linkedin: "", twitter: "", github: "" };
 const defaultBanner: PageBanner = { title: "Let's start a conversation", subtitle: "Have a project in mind? We'd love to hear from you. Reach out and let's discuss how we can help.", bgImage: "" };
@@ -17,6 +18,13 @@ const Contact = () => {
   const { data: banner } = useFirestoreData(() => getPageBanner("contact"), defaultBanner);
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
   const [submitting, setSubmitting] = useState(false);
+
+  useSEO({
+    title: "Contact Us — Get In Touch",
+    description: "Contact Sthanu Setu Technologies for IT consulting, software development, and staffing solutions. Reach us via phone, email, or our contact form.",
+    keywords: "contact Sthanu Setu, IT consulting contact, Hyderabad IT company contact, get in touch, IT services inquiry",
+    canonical: "/contact",
+  });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
