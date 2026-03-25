@@ -8,6 +8,7 @@ import heroCareers from "@/assets/hero-careers.jpg";
 import { toast } from "sonner";
 import { useFirestoreList, useFirestoreData } from "@/hooks/useFirestoreData";
 import { getJobs, getContactInfo, getPageBanner, submitCareerApplication, JobItem, ContactInfo, PageBanner } from "@/lib/firestore";
+import useSEO from "@/hooks/useSEO";
 
 const steps = [
   { icon: Search, title: "Explore", desc: "Browse open positions that match your skills and interests." },

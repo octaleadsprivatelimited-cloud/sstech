@@ -4,6 +4,7 @@ import ScrollReveal from "@/components/shared/ScrollReveal";
 import { useFirestoreList, useFirestoreData } from "@/hooks/useFirestoreData";
 import { getServices, getPageBanner, ServiceItem, PageBanner } from "@/lib/firestore";
 import heroServices from "@/assets/hero-services.jpg";
+import useSEO from "@/hooks/useSEO";
 import serviceConsulting from "@/assets/service-consulting.jpg";
 import serviceDevelopment from "@/assets/service-development.jpg";
 import servicePlacements from "@/assets/service-placements.jpg";

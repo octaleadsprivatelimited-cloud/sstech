@@ -8,6 +8,7 @@ import { toast } from "sonner";
 import heroContact from "@/assets/hero-contact.jpg";
 import { useFirestoreData } from "@/hooks/useFirestoreData";
 import { getContactInfo, getPageBanner, submitContactForm, ContactInfo, PageBanner } from "@/lib/firestore";
+import useSEO from "@/hooks/useSEO";
 
 const defaultContact: ContactInfo = { email: "info@sthanusetu.com", phone: "+91 76758 43214", address: "Hyderabad, Telangana, India", whatsapp: "917675843214", linkedin: "", twitter: "", github: "" };
 const defaultBanner: PageBanner = { title: "Let's start a conversation", subtitle: "Have a project in mind? We'd love to hear from you. Reach out and let's discuss how we can help.", bgImage: "" };

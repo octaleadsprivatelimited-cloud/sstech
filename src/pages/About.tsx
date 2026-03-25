@@ -3,6 +3,7 @@ import ScrollReveal from "@/components/shared/ScrollReveal";
 import heroAbout from "@/assets/hero-about.jpg";
 import { useFirestoreData, useFirestoreList } from "@/hooks/useFirestoreData";
 import { getAbout, getTeam, getPageBanner, AboutData, TeamMember, PageBanner } from "@/lib/firestore";
+import useSEO from "@/hooks/useSEO";
 
 const values = [
   { icon: Heart, title: "Integrity", desc: "Transparent and honest partnerships with every client." },

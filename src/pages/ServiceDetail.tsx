@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import { useFirestoreList, useFirestoreData } from "@/hooks/useFirestoreData";
 import { getServices, getContactInfo, ServiceItem, ContactInfo } from "@/lib/firestore";
+import useSEO from "@/hooks/useSEO";
 import serviceConsulting from "@/assets/service-consulting.jpg";
 import serviceDevelopment from "@/assets/service-development.jpg";
 import servicePlacements from "@/assets/service-placements.jpg";
