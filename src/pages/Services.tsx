@@ -27,7 +27,12 @@ const Services = () => {
   const { data: services } = useFirestoreList(getServices, fallbackServices);
   const { data: banner } = useFirestoreData(() => getPageBanner("services"), defaultBanner);
 
-  return (
+  useSEO({
+    title: "Our Services — IT Consulting, Development & Staffing",
+    description: "Explore Sthanu Setu Technologies' services: IT consulting, custom software development, job placements, and ongoing support & maintenance.",
+    keywords: "IT services, software development services, IT consulting services, job placements, staffing solutions, Hyderabad IT company",
+    canonical: "/services",
+  });
     <>
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${banner.bgImage || heroServices})` }} />

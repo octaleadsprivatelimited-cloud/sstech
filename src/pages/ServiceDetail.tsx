@@ -31,6 +31,13 @@ const ServiceDetail = () => {
   const serviceIndex = services.findIndex((s) => slugify(s.title) === slug);
   const service = services[serviceIndex];
 
+  useSEO({
+    title: service ? `${service.title} — Services` : "Service Details",
+    description: service ? `${service.description?.slice(0, 155)}...` : "Explore our professional IT services at Sthanu Setu Technologies.",
+    keywords: service ? `${service.title}, IT services, Sthanu Setu Technologies, Hyderabad` : "IT services",
+    canonical: `/services/${slug}`,
+  });
+
   if (!service) {
     return (
       <div className="min-h-[60vh] flex items-center justify-center">

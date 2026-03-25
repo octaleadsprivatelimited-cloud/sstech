@@ -19,6 +19,13 @@ const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
   const [submitting, setSubmitting] = useState(false);
 
+  useSEO({
+    title: "Contact Us — Get In Touch",
+    description: "Contact Sthanu Setu Technologies for IT consulting, software development, and staffing solutions. Reach us via phone, email, or our contact form.",
+    keywords: "contact Sthanu Setu, IT consulting contact, Hyderabad IT company contact, get in touch, IT services inquiry",
+    canonical: "/contact",
+  });
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);

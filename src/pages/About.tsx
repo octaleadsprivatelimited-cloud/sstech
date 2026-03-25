@@ -34,6 +34,13 @@ const About = () => {
   const { data: team } = useFirestoreList(getTeam, fallbackTeam);
   const { data: banner } = useFirestoreData(() => getPageBanner("about"), defaultBanner);
 
+  useSEO({
+    title: "About Us — Our Story & Team",
+    description: "Learn about Sthanu Setu Technologies — our mission, values, and the experienced team behind our IT consulting and software development services.",
+    keywords: "about Sthanu Setu, IT company Hyderabad, technology team, company values, IT consulting firm",
+    canonical: "/about",
+  });
+
   const bgImage = banner.bgImage || about.heroBgImage || heroAbout;
 
   return (
