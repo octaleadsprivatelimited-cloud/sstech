@@ -27,6 +27,7 @@ const StatsBar = () => {
                   end={stat.end}
                   suffix={stat.suffix}
                   label={stat.label}
+                  variant="hero"
                 />
               </div>
             ))}

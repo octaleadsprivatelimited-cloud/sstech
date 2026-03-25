@@ -39,11 +39,11 @@ const AnimatedCounter = ({ end, suffix = "", label, duration = 2, variant = "def
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       className="text-center"
     >
-      <div className="font-heading text-xl sm:text-2xl md:text-3xl font-bold text-white tabular-nums tracking-tight">
+      <div className={`font-heading text-xl sm:text-2xl md:text-3xl font-bold tabular-nums tracking-tight ${variant === "default" ? "text-foreground" : "text-white"}`}>
         {count}
         {suffix}
       </div>
-      <div className="text-[10px] sm:text-xs text-white/45 mt-1 font-medium tracking-wide">
+      <div className={`text-[10px] sm:text-xs mt-1 font-medium tracking-wide ${variant === "default" ? "text-muted-foreground" : "text-white/45"}`}>
         {label}
       </div>
     </motion.div>
