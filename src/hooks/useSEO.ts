@@ -6,13 +6,14 @@ interface SEOProps {
   keywords?: string;
   canonical?: string;
   ogImage?: string;
+  robots?: string;
 }
 
 const DOMAIN = "https://sthansetutech.com";
 const DEFAULT_IMAGE = `${DOMAIN}/logo.jpeg`;
 const SITE_NAME = "Sthanu Setu Technologies";
 
-const useSEO = ({ title, description, keywords, canonical, ogImage }: SEOProps) => {
+const useSEO = ({ title, description, keywords, canonical, ogImage, robots }: SEOProps) => {
   useEffect(() => {
     const fullTitle = `${title} | ${SITE_NAME}`;
     document.title = fullTitle;
@@ -29,6 +30,7 @@ const useSEO = ({ title, description, keywords, canonical, ogImage }: SEOProps) 
 
     setMeta("description", description);
     if (keywords) setMeta("keywords", keywords);
+    if (robots) setMeta("robots", robots);
     setMeta("og:title", fullTitle, "property");
     setMeta("og:description", description, "property");
     setMeta("og:image", ogImage || DEFAULT_IMAGE, "property");
@@ -46,7 +48,7 @@ const useSEO = ({ title, description, keywords, canonical, ogImage }: SEOProps) 
       document.head.appendChild(link);
     }
     link.setAttribute("href", canonical ? `${DOMAIN}${canonical}` : DOMAIN);
-  }, [title, description, keywords, canonical, ogImage]);
+  }, [title, description, keywords, canonical, ogImage, robots]);
 };
 
 export default useSEO;
